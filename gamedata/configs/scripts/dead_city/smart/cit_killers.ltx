@@ -1,0 +1,56 @@
+#include "respawnrates_dead_city.ltx"
+
+[smart_terrain]:respawn_ultra
+squad_id = 4
+max_population = 5
+respawn_params = respawn@cit_killers
+
+
+[respawn@cit_killers]
+spawn_merc@novice
+spawn_merc@trainee
+spawn_merc@advanced
+spawn_merc@veteran
+spawn_merc@elite
+
+[spawn_merc@novice]
+spawn_squads = merc_sim_squad_novice
+spawn_num = 2
+
+[spawn_merc@trainee]
+spawn_squads = merc_sim_squad_trainee
+spawn_num = 2
+
+[spawn_merc@advanced]
+spawn_squads = merc_sim_squad_advanced
+spawn_num = 2
+
+[spawn_merc@veteran]
+spawn_squads = merc_sim_squad_veteran
+spawn_num = 2
+
+[spawn_merc@elite]
+spawn_squads = merc_sim_squad_elite
+spawn_num = 1
+
+[exclusive]
+cit_killers_merc_trader = dead_city\cit_killers_smart_logic.ltx
+cit_killers_merc_mechanic = dead_city\cit_killers_smart_logic.ltx
+cit_killers_camp_work_1 = dead_city\cit_killers_smart_logic.ltx
+cit_killers_camp_work_2 = dead_city\cit_killers_smart_logic.ltx
+cit_killers_camp_work_3 = dead_city\cit_killers_smart_logic.ltx
+cit_killers_camp_work_4 = dead_city\cit_killers_smart_logic.ltx
+cit_killers_camp_work_5 = dead_city\cit_killers_smart_logic.ltx
+cit_killers_camp_work_6 = dead_city\cit_killers_smart_logic.ltx
+cit_killers_camp_work_7 = dead_city\cit_killers_smart_logic.ltx
+cit_killers_camp_work_8 = dead_city\cit_killers_smart_logic.ltx
+cit_killers_camp_work_9 = dead_city\cit_killers_smart_logic.ltx
+cit_killers_camp_work_10 = dead_city\cit_killers_smart_logic.ltx
+cit_killers_camp_work_11 = dead_city\cit_killers_smart_logic.ltx
+cit_killers_camp_work_12 = dead_city\cit_killers_smart_logic.ltx
+faction_base_defense_enemy1 = dead_city\cit_killers_smart_logic.ltx
+faction_base_defense_enemy2 = dead_city\cit_killers_smart_logic.ltx
+faction_base_defense_enemy3 = dead_city\cit_killers_smart_logic.ltx
+faction_base_defense_enemy4 = dead_city\cit_killers_smart_logic.ltx
+faction_base_defense_enemy5 = dead_city\cit_killers_smart_logic.ltx
+faction_base_defense_enemy6 = dead_city\cit_killers_smart_logic.ltx

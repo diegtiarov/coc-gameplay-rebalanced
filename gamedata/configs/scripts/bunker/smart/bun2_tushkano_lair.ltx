@@ -1,0 +1,13 @@
+#include "respawnrates_bunker.ltx"
+
+[smart_terrain]:respawn_low
+squad_id = 3
+max_population = 5
+respawn_params = respawn@bun2_tushkano_lair
+
+[respawn@bun2_tushkano_lair]
+spawn_tushkano
+
+[spawn_tushkano]
+spawn_squads = simulation_tushkano
+spawn_num = {+bar_deactivate_radar_done} 5, 0

@@ -1,0 +1,15 @@
+#include "respawnrates_jupiter.ltx"
+
+[smart_terrain]:respawn_med
+squad_id = 43
+max_population = 1
+;respawn_only_smart = true
+respawn_params = respawn@jup_sim_5
+
+
+[respawn@jup_sim_5]
+spawn_pseudodog
+
+[spawn_pseudodog]
+spawn_squads = simulation_pseudodog
+spawn_num = 2

@@ -1,0 +1,28 @@
+#include "respawnrates_garbage.ltx"
+
+[smart_terrain]:respawn_med
+squad_id = 5
+max_population = 7
+respawn_params = respawn@gar_smart_terrain_3_5
+
+
+[respawn@gar_smart_terrain_3_5]
+spawn_bandit@novice
+spawn_bandit@trainee
+
+[spawn_bandit@novice]
+spawn_squads = bandit_sim_squad_novice
+spawn_num = 2
+
+[spawn_bandit@trainee]
+spawn_squads = bandit_sim_squad_trainee
+spawn_num = 2
+
+[exclusive]
+gar_smart_terrain_3_5_camp_work_1 = garbage\gar_smart_terrain_3_5_smart_logic.ltx
+gar_smart_terrain_3_5_camp_work_2 = garbage\gar_smart_terrain_3_5_smart_logic.ltx
+gar_smart_terrain_3_5_camp_work_3 = garbage\gar_smart_terrain_3_5_smart_logic.ltx
+gar_smart_terrain_3_5_camp_work_4 = garbage\gar_smart_terrain_3_5_smart_logic.ltx
+gar_smart_terrain_3_5_camp_work_5 = garbage\gar_smart_terrain_3_5_smart_logic.ltx
+;gar_smart_terrain_3_5_trader = garbage\gar_smart_terrain_3_5_trader.ltx
+;gar_smart_terrain_3_5_tech = garbage\gar_smart_terrain_3_5_tech.ltx

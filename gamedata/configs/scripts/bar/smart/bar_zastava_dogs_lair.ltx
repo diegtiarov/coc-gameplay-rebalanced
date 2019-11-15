@@ -1,0 +1,24 @@
+#include "respawnrates_bar.ltx"
+
+[smart_terrain]:respawn_low
+squad_id = 6
+max_population = 3
+respawn_params = respawn@bar_zastava_dogs_lair
+
+
+[respawn@bar_zastava_dogs_lair]
+spawn_dog
+spawn_pseudodog
+
+[spawn_dog]
+spawn_squads = simulation_dog
+spawn_num = 2
+
+[spawn_pseudodog]
+spawn_squads = simulation_pseudodog
+spawn_num = 1
+
+[exclusive]
+faction_base_defense_enemy1 = bar\bar_zastava_dogs_lair_smart_logic.ltx
+faction_base_defense_enemy2 = bar\bar_zastava_dogs_lair_smart_logic.ltx
+faction_base_defense_enemy3 = bar\bar_zastava_dogs_lair_smart_logic.ltx

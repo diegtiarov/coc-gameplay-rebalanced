@@ -1,0 +1,24 @@
+#include "respawnrates_darkvalley.ltx"
+
+[smart_terrain]:respawn_high
+squad_id = 17
+max_population = 2
+respawn_params = respawn@val_smart_terrain_9_6
+
+
+[respawn@val_smart_terrain_9_6]
+spawn_merc@trainee
+spawn_merc@advanced
+spawn_merc@veteran
+
+[spawn_merc@trainee]
+spawn_squads = merc_sim_squad_trainee
+spawn_num = 1
+
+[spawn_merc@advanced]
+spawn_squads = merc_sim_squad_advanced
+spawn_num = 1
+
+[spawn_merc@veteran]
+spawn_squads = merc_sim_squad_veteran
+spawn_num = 1

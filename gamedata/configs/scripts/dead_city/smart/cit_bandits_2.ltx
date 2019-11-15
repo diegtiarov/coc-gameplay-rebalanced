@@ -1,0 +1,15 @@
+#include "respawnrates_dead_city.ltx"
+
+[smart_terrain]:respawn_high
+squad_id = 5
+max_population = 2
+respawn_params = respawn@cit_bandits_2
+
+
+
+[respawn@cit_bandits_2]
+spawn_bandit@advanced
+
+[spawn_bandit@advanced]
+spawn_squads = bandit_sim_squad_advanced
+spawn_num = 2

@@ -1,0 +1,14 @@
+#include "respawnrates_radar.ltx"
+
+[smart_terrain]:respawn_high
+squad_id = 8
+max_population = 2
+respawn_params = respawn@rad_pseudodogs 
+
+
+[respawn@rad_pseudodogs]
+spawn_pseudodog
+
+[spawn_pseudodog]
+spawn_squads = simulation_pseudodog
+spawn_num = 2

@@ -1,0 +1,14 @@
+#include "respawnrates_rostok.ltx"
+
+[smart_terrain]:respawn_med
+squad_id = 5
+max_population = 3
+respawn_params = respawn@ros_smart_monster4
+
+
+[respawn@ros_smart_monster4]
+spawn_pseudodog
+
+[spawn_pseudodog]
+spawn_squads = simulation_pseudodog
+spawn_num = 2

@@ -1,0 +1,20 @@
+#include "respawnrates_pripyat.ltx"
+
+[smart_terrain]:respawn_med
+squad_id = 7
+max_population = 1
+respawn_params = respawn@pri_sim_4
+;arrive_dist = 100
+
+
+[respawn@pri_sim_4]
+spawn_snork
+
+[spawn_snork]
+spawn_squads = simulation_snork
+spawn_num = 2
+
+[exclusive]
+pri_b35_envoy_after = pripyat\pri_b35_envoy_logic.ltx
+pri_b35_envoy_squad_1 = pripyat\pri_b35_envoy_logic.ltx
+pri_b35_envoy_squad_2 = pripyat\pri_b35_envoy_logic.ltx

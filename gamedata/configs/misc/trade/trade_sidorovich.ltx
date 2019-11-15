@@ -1,0 +1,119 @@
+#include "trade_discounts.ltx"
+#include "trade_buysell.ltx"
+
+[trader]
+buy_condition                            = trade_generic_buy
+buy_item_condition_factor                = 0.7
+buy_supplies                             = supplies_generic
+discounts                                = discount_0
+price_profile                            = barman
+sell_condition                           = trade_generic_sell
+
+[trade_generic_sell]:trade_stalkermerchant_sell
+
+[trade_generic_buy]:trade_stalkermerchant_buy
+
+[supplies_generic]
+
+;DET_ADVA
+detector_advanced                        = 1,	0.25
+
+;II_FOOD
+antirad                                  = 2,	0.65
+bandage                                  = 2,	0.55
+bread                                    = 2,	0.5
+conserva                                 = 2,	0.5
+energy_drink                             = 2,	0.8
+itm_gunsmith_toolkit                     = 1, 0.5
+itm_outfit_toolkit                       = 1, 0.5
+itm_repairkit_tier_1                     = 1, 0.25
+itm_repairkit_tier_2                     = 1, 0.10
+itm_repairkit_tier_3                     = 1, 0.03
+kolbasa                                  = 3,	0.5
+medkit                                   = 5,	0.5
+vodka                                    = 3,	0.8
+
+;II_ANTIR
+itm_backpack                             = 3, 0.6
+itm_sleepbag                             = 1, 0.3
+wpn_mine                                 = 10, 0.5
+
+;G_RGD5
+grenade_rgd5                             = 4,	0.7
+grenade_f1                               = 5,   0.3
+
+;AMMO
+ammo_11.43x23_fmj                        = 4,	0.65
+ammo_11.43x23_hydro                      = 2,	0.45
+ammo_12x70_buck                          = 8,	0.65
+ammo_12x76_zhekan                        = 8,	0.45
+ammo_5.45x39_ap                          = 4,	0.45
+ammo_5.45x39_fmj                         = 8,	0.65
+ammo_5.56x45_ap                          = 2,	0.45
+ammo_5.56x45_ss190                       = 6,	0.65
+ammo_7.62x54_7h1                         = 2,	0.25
+ammo_9x18_fmj                            = 8,	0.65
+ammo_9x18_pmm                            = 8,	0.45
+ammo_9x19_fmj                            = 8,	0.65
+ammo_9x19_pbp                            = 8,	0.45
+ammo_9x39_ap                             = 2,	0.45
+ammo_9x39_pab9                           = 4,	0.65
+ammo_pkm_100                             = 2,	0.25
+
+;S_OG7B
+ammo_og-7b                               = 6, 	0.2
+
+;S_VOG25
+ammo_vog-25                              = 6, 	0.2
+
+;S_M209
+ammo_m209                                = 4,   0.5
+
+;WP_SCOPE
+wpn_addon_scope                          = 1,	0.5
+wpn_addon_scope_susat                    = 1,	0.5
+
+;WP_SILEN
+wpn_addon_silencer                       = 2,	0.3
+
+;WP_AK74
+wpn_abakan                               = 1,	0.3
+wpn_ak74                                 = 1,	0.8
+wpn_ak74u                                = 1,	0.8
+wpn_l85                                  = 1,	0.8
+wpn_lr300                                = 1,	0.3
+
+;WP_ASHTG
+wpn_wincheaster1300                      = 1,	0.8
+
+;WP_BINOC
+wpn_binoc                                = 1,   0.5
+
+;WP_HPSA
+wpn_hpsa                                 = 1,	0.8
+
+;WP_KNIFE
+wpn_knife                                = 1,   0.5
+
+;WP_LR300
+wpn_beretta                              = 1,	0.8
+wpn_mp5                                  = 1,	0.8
+
+;WP_PM
+wpn_colt1911                             = 1,	0.8
+wpn_fort                                 = 1,	0.8
+
+;EQU_STLK
+exo_outfit                               = 1, 0.2
+merc_outfit                              = 1, 0.2
+scientific_outfit                        = 1, 0.4
+specops_outfit                           = 1, 0.2
+stalker_outfit                           = 1, 0.8
+
+;E_HLMET
+helm_battle                              = 1, 0.4
+helm_hardhat                             = 1, 0.4
+helm_m40                                 = 1, 0.4
+helm_protective                          = 1, 0.4
+helm_respirator                          = 1, 0.4
+helm_tactic                              = 1, 0.4

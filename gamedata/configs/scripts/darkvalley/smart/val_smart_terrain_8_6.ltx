@@ -1,0 +1,19 @@
+#include "respawnrates_darkvalley.ltx"
+
+[smart_terrain]:respawn_med
+squad_id = 11
+max_population = 1
+respawn_params = respawn@val_smart_terrain_8_6
+
+
+[respawn@val_smart_terrain_8_6]
+spawn_stalker@trainee
+spawn_stalker@advanced
+
+[spawn_stalker@trainee]
+spawn_squads = stalker_sim_squad_trainee
+spawn_num = 1
+
+[spawn_stalker@advanced]
+spawn_squads = stalker_sim_squad_advanced
+spawn_num = 1

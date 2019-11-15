@@ -1,0 +1,19 @@
+#include "respawnrates_darkvalley.ltx"
+
+[smart_terrain]:respawn_med
+squad_id = 16
+max_population = 1
+respawn_params = respawn@val_smart_terrain_9_4
+
+
+[respawn@val_smart_terrain_9_4]
+spawn_bandit@trainee
+spawn_bandit@advanced
+
+[spawn_bandit@trainee]
+spawn_squads = bandit_sim_squad_trainee
+spawn_num = 1
+
+[spawn_bandit@advanced]
+spawn_squads = bandit_sim_squad_advanced
+spawn_num = 1

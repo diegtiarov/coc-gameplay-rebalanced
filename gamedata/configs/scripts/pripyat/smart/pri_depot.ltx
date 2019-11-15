@@ -1,0 +1,34 @@
+#include "respawnrates_pripyat.ltx"
+
+[smart_terrain]:respawn_high
+squad_id = 1
+max_population = 3
+respawn_params = respawn@pri_depot
+
+
+[respawn@pri_depot]
+spawn_monolith@novice
+spawn_monolith@trainee
+spawn_monolith@advanced
+spawn_monolith@veteran
+spawn_monolith@elite
+
+[spawn_monolith@novice]
+spawn_squads = monolith_sim_squad_novice
+spawn_num = 2
+
+[spawn_monolith@trainee]
+spawn_squads = monolith_sim_squad_trainee
+spawn_num = 2
+
+[spawn_monolith@advanced]
+spawn_squads = monolith_sim_squad_advanced
+spawn_num = 2
+
+[spawn_monolith@veteran]
+spawn_squads = monolith_sim_squad_veteran
+spawn_num = 2
+
+[spawn_monolith@elite]
+spawn_squads = monolith_sim_squad_elite
+spawn_num = 1

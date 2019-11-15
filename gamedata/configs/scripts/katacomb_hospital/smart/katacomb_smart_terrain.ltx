@@ -1,0 +1,23 @@
+#include "respawnrates_katacomb_hospital.ltx"
+
+[smart_terrain]:respawn_med
+squad_id = 1
+max_population = 6
+respawn_params = respawn@katacomb_smart_terrain
+
+[respawn@katacomb_smart_terrain]
+spawn_monolith@advanced
+spawn_monolith@veteran
+
+[spawn_monolith@advanced]
+spawn_squads = monolith_sim_squad_advanced
+spawn_num = 2
+
+[spawn_monolith@veteran]
+spawn_squads = monolith_sim_squad_veteran
+spawn_num = 2
+
+
+[exclusive]
+kat_hosp_z1_minigunner_excl = katacomb_hospital\katacomb_smart_terrain_logic.ltx
+kat_hosp_z3_minigunner_excl = katacomb_hospital\katacomb_smart_terrain_logic.ltx

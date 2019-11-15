@@ -1,0 +1,20 @@
+;--------------------------------------------------------------------------------
+;-- Copyright: 2010-2012 SWM Team -----------------------------------------------
+;-- last edited: Jurok ----------------------------------------------------------
+;--------------------------------------------------------------------------------
+
+#include "respawnrates_pripyat.ltx"
+
+[smart_terrain]:respawn_med
+squad_id = 32
+max_population = 1
+respawn_only_smart = true
+respawn_params = respawn@pri_sim_10
+
+
+[respawn@pri_sim_10]
+spawn_izlom
+
+[spawn_izlom]
+spawn_squads = simulation_fracture
+spawn_num = 2

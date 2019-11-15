@@ -1,0 +1,25 @@
+#include "respawnrates_jupiter.ltx"
+
+[smart_terrain]:respawn_med
+squad_id = 9
+max_population = 2
+respawn_params = respawn@jup_b200   
+
+[respawn@jup_b200]
+spawn_freedom@advanced
+spawn_freedom@veteran
+
+[spawn_freedom@advanced]
+spawn_squads = freedom_sim_squad_advanced
+spawn_num = 2
+
+[spawn_freedom@veteran]
+spawn_squads = freedom_sim_squad_veteran
+spawn_num = 2
+
+;[exclusive]
+;jup_b200_stalker = jupiter\jup_b200_stalker.ltx
+;jup_b200_stalker1 = jupiter\jup_b200_stalker.ltx
+;jup_b200_stalker2 = jupiter\jup_b200_stalker.ltx
+;jup_b200_stalker3 = jupiter\jup_b200_stalker.ltx
+;jup_b200_stalker4 = jupiter\jup_b200_stalker.ltx

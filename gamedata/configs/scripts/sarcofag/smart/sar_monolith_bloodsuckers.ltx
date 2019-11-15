@@ -1,0 +1,14 @@
+#include "respawnrates_sarcofag.ltx"
+
+[smart_terrain]:respawn_med
+squad_id = 4
+max_population = 4
+respawn_params = respawn@sar_monolith_bloodsuckers
+respawn_radius = 300
+
+[respawn@sar_monolith_bloodsuckers]
+spawn_bloodsucker_cnpp
+
+[spawn_bloodsucker_cnpp]
+spawn_squads = simulation_bloodsucker_cnpp
+spawn_num = {+sar_secret_door_find} 3, 0

@@ -1,0 +1,15 @@
+#include "respawnrates_pripyat.ltx"
+
+[smart_terrain]:respawn_med
+squad_id = 10
+max_population = 1
+respawn_params = respawn@pri_sim_1
+
+;arrive_dist = 100
+
+[respawn@pri_sim_1]
+spawn_dog
+
+[spawn_dog]
+spawn_squads = simulation_dog
+spawn_num = 2

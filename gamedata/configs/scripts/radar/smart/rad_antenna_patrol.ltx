@@ -1,0 +1,19 @@
+#include "respawnrates_radar.ltx"
+
+[smart_terrain]:respawn_med
+squad_id = 4
+max_population = 4
+respawn_params = respawn@rad_antenna_patrol
+
+
+[respawn@rad_antenna_patrol]
+spawn_monolith@advanced
+spawn_monolith@veteran
+
+[spawn_monolith@advanced]
+spawn_squads = monolith_sim_squad_advanced
+spawn_num = 2
+
+[spawn_monolith@veteran]
+spawn_squads = monolith_sim_squad_veteran
+spawn_num = 2

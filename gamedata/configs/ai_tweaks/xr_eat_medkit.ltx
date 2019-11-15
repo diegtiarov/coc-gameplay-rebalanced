@@ -1,0 +1,28 @@
+[plugin]
+enable = true
+refused_names = none	;seems not to be used
+in_combat = true					;Can use in combat
+out_combat = true					;Can use outside combat
+medkit_health = 90.0				;Percent of health before npc uses medkit
+medkit_cooldown = 60000             ;How much time in ms has to pass in order to allow npc to use another medkit
+bandage_bleeding = 0.15
+medkits = medkit,medkit_army,medkit_scientic	;Usable sections
+bandages = bandage
+excluded_communities = zombied ;disabled
+
+[novice]
+medkit_delay = 1200,1300			;Min-Max delay before eating in ms
+bandage_delay = 1000,4000
+
+[experienced]
+medkit_delay = 1000,1200			;Min-Max delay before eating in ms
+bandage_delay = 1000,3300
+
+[veteran]
+medkit_delay = 700,1000				;Min-Max delay before eating in ms
+bandage_delay = 1000,1900
+
+[master]
+medkit_delay = 700,700				;Min-Max delay before eating in ms
+bandage_delay = 500,1000
+

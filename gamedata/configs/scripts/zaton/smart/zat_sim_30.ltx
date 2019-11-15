@@ -1,0 +1,15 @@
+#include "respawnrates_zaton.ltx"
+
+[smart_terrain]:respawn_low
+squad_id = 58
+max_population = 1
+;respawn_only_smart = true
+respawn_params = respawn@zat_sim_30
+
+
+[respawn@zat_sim_30]
+spawn_chimera_zaton
+
+[spawn_chimera_zaton]
+spawn_squads = simulation_chimera_zaton
+spawn_num = 1

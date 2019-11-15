@@ -1,0 +1,27 @@
+[logic@gar_smart_terrain_3_5_trader]
+active = beh@gar_smart_terrain_3_5_trader
+prior = 200
+trade = misc\trade\trade_any_garbage.ltx
+can_select_weapon = false
+level_spot = trader
+dont_keep_items = true
+
+[beh@gar_smart_terrain_3_5_trader]
+walk_dist = 100
+jog_dist = 220
+wait_anim = rush
+walk_anim = rush
+jog_anim = rush
+run_anim = rush
+delay_anim = guard
+gather_items_enabled = false
+help_wounded_enabled = false
+corpse_detection_enabled = false
+meet = meet@general
+
+;avail_animations = animpoint_stay_table
+use_camp = false
+combat_ignore_cond = {=actor_enemy =check_enemy_name(actor)} false, true
+combat_ignore_keep_when_attacked = false
+pt1 = 300000,idle | pos:-101.4,0.7125,-1.79125
+path_end = loop

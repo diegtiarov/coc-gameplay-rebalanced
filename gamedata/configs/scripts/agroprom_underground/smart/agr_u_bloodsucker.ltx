@@ -1,0 +1,16 @@
+#include "respawnrates_agroprom_underground.ltx"
+
+[smart_terrain]:respawn_med
+squad_id = 2
+max_population = 2
+respawn_params = respawn@agr_u_bloodsucker_1
+
+[respawn@agr_u_bloodsucker_1]
+spawn_bloodsucker_agr_yan
+
+[spawn_bloodsucker_agr_yan]
+spawn_squads = simulation_bloodsucker_agr_yan
+spawn_num = {+agru_add_reward} 1, 0
+
+[exclusive]
+agr_u_bloodsucker_1 = agroprom_underground\agru_bloodsucker_1.ltx

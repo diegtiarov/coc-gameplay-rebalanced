@@ -1,0 +1,55 @@
+#include "respawnrates_agroprom.ltx"
+
+[smart_terrain]:respawn_ultra
+squad_id = 3
+max_population = 5
+respawn_params = respawn@agr_smart_terrain_1_6
+
+
+[respawn@agr_smart_terrain_1_6]
+spawn_army@novice
+spawn_army@trainee
+spawn_army@advanced
+spawn_army@veteran
+spawn_army@elite
+spawn_army@patrol
+
+[spawn_army@novice]
+spawn_squads = army_sim_squad_novice
+spawn_num = 2
+
+[spawn_army@trainee]
+spawn_squads = army_sim_squad_trainee
+spawn_num = 2
+
+[spawn_army@advanced]
+spawn_squads = army_sim_squad_advanced
+spawn_num = 2
+
+[spawn_army@veteran]
+spawn_squads = army_sim_squad_veteran
+spawn_num = 2
+
+[spawn_army@elite]
+spawn_squads = army_sim_squad_elite
+spawn_num = 1
+
+[spawn_army@patrol]
+spawn_squads = army_sim_squad_sniper
+spawn_num = 1
+
+[exclusive]
+agr_smart_terrain_1_6_camp_work_1 = agroprom\agr_smart_terrain_1_6_smart_logic.ltx
+agr_smart_terrain_1_6_camp_work_2 = agroprom\agr_smart_terrain_1_6_smart_logic.ltx
+agr_smart_terrain_1_6_camp_work_3 = agroprom\agr_smart_terrain_1_6_smart_logic.ltx
+agr_smart_terrain_1_6_camp_work_4 = agroprom\agr_smart_terrain_1_6_smart_logic.ltx
+agr_smart_terrain_1_6_camp_work_5 = agroprom\agr_smart_terrain_1_6_smart_logic.ltx
+agr_smart_terrain_1_6_minigunner_excl = agroprom\agr_smart_terrain_1_6_smart_logic.ltx
+agr_smart_terrain_1_6_army_trader =  agroprom\agr_smart_terrain_1_6_smart_logic.ltx
+agr_smart_terrain_1_6_army_mechanic =  agroprom\agr_smart_terrain_1_6_smart_logic.ltx
+faction_base_defense_enemy1 = agroprom\agr_smart_terrain_1_6_smart_logic.ltx
+faction_base_defense_enemy2 = agroprom\agr_smart_terrain_1_6_smart_logic.ltx
+faction_base_defense_enemy3 = agroprom\agr_smart_terrain_1_6_smart_logic.ltx
+faction_base_defense_enemy4 = agroprom\agr_smart_terrain_1_6_smart_logic.ltx
+faction_base_defense_enemy5 = agroprom\agr_smart_terrain_1_6_smart_logic.ltx
+faction_base_defense_enemy6 = agroprom\agr_smart_terrain_1_6_smart_logic.ltx

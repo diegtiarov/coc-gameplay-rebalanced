@@ -1,0 +1,14 @@
+#include "respawnrates_rostok.ltx"
+
+[smart_terrain]:respawn_med
+squad_id = 11
+max_population = 3
+respawn_params = respawn@ros_smart_poltergeist2
+   
+
+[respawn@ros_smart_poltergeist2]
+spawn_poltergeist_tele
+
+[spawn_poltergeist_tele]
+spawn_squads = simulation_poltergeist_tele
+spawn_num = 2

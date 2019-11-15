@@ -1,0 +1,14 @@
+#include "respawnrates_limansk.ltx"
+
+[smart_terrain]:respawn_med
+squad_id = 5
+max_population = 2
+respawn_params = respawn@lim_smart_terrain_4
+
+
+[respawn@lim_smart_terrain_4]
+spawn_merc@veteran
+
+[spawn_merc@veteran]
+spawn_squads = merc_sim_squad_veteran
+spawn_num = 1

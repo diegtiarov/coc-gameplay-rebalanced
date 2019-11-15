@@ -1,0 +1,14 @@
+#include "respawnrates_limansk.ltx"
+
+[smart_terrain]:respawn_med
+squad_id = 10
+max_population = 6
+respawn_params = respawn@lim_smart_terrain_9
+
+
+[respawn@lim_smart_terrain_9]
+spawn_monolith@veteran
+
+[spawn_monolith@veteran]
+spawn_squads = monolith_sim_squad_veteran
+spawn_num = 1

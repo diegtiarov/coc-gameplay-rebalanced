@@ -1,0 +1,21 @@
+#include "respawnrates_agroprom_underground.ltx"
+
+[smart_terrain]:respawn_med
+squad_id = 4
+max_population = 2
+respawn_params = respawn@agr_u_monsters
+
+[respawn@agr_u_monsters]
+spawn_tushkano
+
+
+[spawn_tushkano]
+spawn_squads = simulation_tushkano
+spawn_num = 2
+
+[exclusive]
+agr_u_monsters_controller = agroprom_underground\agru_controller_1.ltx
+agru_poltergeist_squad_1 = agroprom_underground\agru_poltergeist_1.ltx
+agru_poltergeist_squad_2 = agroprom_underground\agru_poltergeist_2.ltx
+agru_poltergeist_squad_3 = agroprom_underground\agru_poltergeist_3.ltx
+agru_poltergeist_squad_4 = agroprom_underground\agru_poltergeist_4.ltx

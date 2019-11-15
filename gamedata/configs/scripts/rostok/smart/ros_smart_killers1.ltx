@@ -1,0 +1,19 @@
+#include "respawnrates_rostok.ltx"
+
+[smart_terrain]:respawn_med
+squad_id = 2
+max_population = 2
+respawn_params = respawn@ros_smart_killers1
+
+
+[respawn@ros_smart_killers1]
+spawn_merc@advanced
+spawn_merc@veteran
+
+[spawn_merc@advanced]
+spawn_squads = merc_sim_squad_advanced
+spawn_num = 2
+
+[spawn_merc@veteran]
+spawn_squads = merc_sim_squad_veteran
+spawn_num = 2

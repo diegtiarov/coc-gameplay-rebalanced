@@ -1,0 +1,18 @@
+#include "respawnrates_jupiter.ltx"
+
+[smart_terrain]:respawn_med
+squad_id = 16
+max_population = 2
+respawn_params = respawn@jup_b208
+
+
+[respawn@jup_b208]
+spawn_bloodsucker_jupiter
+
+[spawn_bloodsucker_jupiter]
+spawn_squads = simulation_bloodsucker_jupiter
+spawn_num = 3
+
+[exclusive]
+burer_1 = jupiter\jup_b208_burers.ltx
+burer_2 = jupiter\jup_b208_burers.ltx

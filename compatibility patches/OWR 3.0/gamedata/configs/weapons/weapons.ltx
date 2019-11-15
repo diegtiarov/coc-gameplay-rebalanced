@@ -1,0 +1,1467 @@
+#include "delayed_action_fuse.ltx"
+#include "upgrades_properties.ltx"
+#include "weapon_addons.ltx"
+#include "weapon_sounds.ltx"
+
+#include "w_abakan.ltx"
+#include "w_ak74.ltx"
+#include "w_ak74u.ltx"
+#include "w_beretta.ltx"
+#include "w_binoc.ltx"
+#include "w_bm16.ltx"
+#include "w_bolt.ltx"
+#include "w_colt1911.ltx"
+#include "w_desert_eagle.ltx"
+#include "w_f1.ltx"
+#include "w_fn2000.ltx"
+#include "w_fort.ltx"
+#include "w_g36.ltx"
+#include "w_gauss.ltx"
+#include "w_gd5.ltx"
+#include "w_groza.ltx"
+#include "w_hpsa.ltx"
+#include "w_knife.ltx"
+#include "w_l85.ltx"
+#include "w_lr300.ltx"
+#include "w_mounted.ltx"
+#include "w_mp5.ltx"
+#include "w_pb.ltx"
+#include "w_pkm.ltx"
+#include "w_pm.ltx"
+#include "w_protecta.ltx"
+#include "w_rg6.ltx"
+#include "w_rgd5.ltx"
+#include "w_rpg7.ltx"
+#include "w_sig220.ltx"
+#include "w_sig550.ltx"
+#include "w_spas12.ltx"
+#include "w_svd.ltx"
+#include "w_svu.ltx"
+#include "w_toz34.ltx"
+#include "w_usp45.ltx"
+#include "w_val.ltx"
+#include "w_vintorez.ltx"
+#include "w_walther.ltx"
+#include "w_wincheaster1300.ltx"
+
+#include "upgrades\w_abakan_up.ltx"
+#include "upgrades\w_ak74_up.ltx"
+#include "upgrades\w_ak74u_up.ltx"
+#include "upgrades\w_beretta_up.ltx"
+#include "upgrades\w_bm16_up.ltx"
+#include "upgrades\w_colt1911_up.ltx"
+#include "upgrades\w_desert_eagle_up.ltx"
+#include "upgrades\w_fn2000_up.ltx"
+#include "upgrades\w_fort_up.ltx"
+#include "upgrades\w_g36_up.ltx"
+#include "upgrades\w_groza_up.ltx"
+#include "upgrades\w_hpsa_up.ltx"
+#include "upgrades\w_l85_up.ltx"
+#include "upgrades\w_lr300_up.ltx"
+#include "upgrades\w_mp5_up.ltx"
+#include "upgrades\w_pb_up.ltx"
+#include "upgrades\w_pkm_up.ltx"
+#include "upgrades\w_pm_up.ltx"
+#include "upgrades\w_protecta_up.ltx"
+#include "upgrades\w_sig220_up.ltx"
+#include "upgrades\w_sig550_up.ltx"
+#include "upgrades\w_spas12_up.ltx"
+#include "upgrades\w_svd_up.ltx"
+#include "upgrades\w_svu_up.ltx"
+#include "upgrades\w_toz34_up.ltx"
+#include "upgrades\w_usp45_up.ltx"
+#include "upgrades\w_val_up.ltx"
+#include "upgrades\w_vintorez_up.ltx"
+#include "upgrades\w_walther_up.ltx"
+#include "upgrades\w_wincheaster1300_up.ltx"
+[bullet_manager]
+air_resistance_k                                   = 1
+collision_energy_max                               = 0.999
+collision_energy_min                               = 0.001
+explode_particles                                  = explosions\expl_bullet,explosions\expl_bullet_00,explosions\expl_bullet_01
+fire_circle_k                                      = 2.0f
+gravity_const                                      = 9.81
+hit_probability_max_dist                           = 0.001
+min_bullet_speed                                   = 0.001
+time_step                                          = 5
+tracer_length_max                                  = 225
+tracer_length_min                                  = 0
+tracer_shader                                      = effects\bullet_tracer
+tracer_texture                                     = fx\fx_tracer_weapons
+tracer_width                                       = 0.08
+whine_sounds                                       = weapons\whine_1, weapons\whine_2, weapons\whine_3, weapons\whine_4, weapons\whine01, weapons\whine02
+
+[tracers_color_table]
+color_0                                            = 255,	130,	0,		255
+color_1                                            = 255,	255,	255,	255
+color_2                                            = 255,	25,		0,		255
+color_3                                            = 77,	255,	77,		255
+color_4                                            = 0,	0,		255,		255
+color_5                                            = 255,	127,	63,		150
+
+[ammo_base]:default_weapon_params
+class                                              = AMMO
+cform                                              = skeleton
+explosive                                          = false
+k_speed                                            = 1
+tracer                                             = on
+tracer_color_ID                                    = 0
+
+[ammo_knife]:ammo_base
+$prefetch                                          = 64
+box_size                                           = 1
+buck_shot                                          = 1
+cost                                               = 1
+impair                                             = 1
+inv_grid_height                                    = 1
+inv_grid_width                                     = 1
+inv_grid_x                                         = 0
+inv_grid_y                                         = 0
+inv_name                                           = "ammo_knife"
+inv_name_short                                     = "ammo_knife"
+inv_weight                                         = 0
+k_air_resistance                                   = 1
+k_ap                                               = 10
+k_disp                                             = 1
+k_dist                                             = 1
+k_hit                                              = 1.5
+k_impulse                                          = 1
+k_pierce                                           = 999
+tracer                                             = off
+visual                                             = dynamics\weapons\wpn_ammo\ammo_9x18_fmj.ogf
+wm_size                                            = 0.05
+
+[ammo_12x70_buck]:ammo_base
+$prefetch                                          = 64
+$spawn                                             = "weapons\ammo\ammo_12x70_buck"
+box_size                                           = 10
+buck_shot                                          = 15
+cform                                              = skeleton
+class                                              = AMMO
+cost                                               = 120
+description                                        = ammo-12x70-buck_descr
+discovery_dependency                               = 
+GroupControlSection                                = spawn_group
+impair                                             = 1
+inv_grid_height                                    = 1
+inv_grid_width                                     = 2
+inv_grid_x                                         = 2
+inv_grid_y                                         = 8
+inv_name                                           = ammo-12x70-buck
+inv_name_short                                     = ammo-12x70-buck_s
+inv_weight                                         = 0.45
+k_air_resistance                                   = 3
+k_ap                                               = 0.2
+k_disp                                             = 4
+k_dist                                             = 0.5
+k_hit                                              = 0.25
+k_impulse                                          = 0.5
+k_pierce                                           = 0.15
+tracer                                             = off
+visual                                             = dynamics\weapons\wpn_ammo\ammo_12x70_buck.ogf
+wm_size                                            = 0.05
+
+[ammo_12x76_zhekan]:ammo_base
+$prefetch                                          = 64
+$spawn                                             = "weapons\ammo\ammo_12x76_zhekan"
+box_size                                           = 10
+buck_shot                                          = 1
+cform                                              = skeleton
+class                                              = AMMO
+cost                                               = 250
+description                                        = ammo-12x76-zhekan_descr
+discovery_dependency                               = 
+GroupControlSection                                = spawn_group
+impair                                             = 1
+inv_grid_height                                    = 1
+inv_grid_width                                     = 2
+inv_grid_x                                         = 4
+inv_grid_y                                         = 8
+inv_name                                           = ammo-12x76-zhekan
+inv_name_short                                     = ammo-12x76-zhekan_s
+inv_weight                                         = 0.50
+k_air_resistance                                   = 1.3
+k_ap                                               = 1.4
+k_disp                                             = 1
+k_dist                                             = 1
+k_hit                                              = 1
+k_impulse                                          = 0.55
+k_pierce                                           = 0.55
+tracer_color_ID                                    = 3
+visual                                             = dynamics\weapons\wpn_ammo\ammo_12x76_zhekan.ogf
+wm_size                                            = 0.16
+
+[ammo_12x76_zhekan_heli]:ammo_12x76_zhekan
+$spawn                                             = "weapons\ammo\ammo_12x76_zhekan_heli"
+explosive                                          = on
+k_ap                                               = 16
+
+[ammo_9x18_fmj]:ammo_base
+$prefetch                                          = 64
+$spawn                                             = "weapons\ammo\ammo_9x18_fmj"
+box_size                                           = 40
+buck_shot                                          = 1
+cform                                              = skeleton
+class                                              = AMMO
+cost                                               = 200
+description                                        = ammo-9x18-fmj_descr
+discovery_dependency                               = 
+GroupControlSection                                = spawn_group
+impair                                             = 1
+inv_grid_height                                    = 1
+inv_grid_width                                     = 1
+inv_grid_x                                         = 9
+inv_grid_y                                         = 5
+inv_name                                           = ammo-9x18-fmj
+inv_name_short                                     = ammo-9x18-fmj_s
+inv_weight                                         = 0.2
+k_air_resistance                                   = 1.5
+k_ap                                               = 0.22
+k_disp                                             = 1
+k_dist                                             = 1
+k_hit                                              = 1
+k_impulse                                          = 1
+k_pierce                                           = 0.15
+visual                                             = dynamics\weapons\wpn_ammo\ammo_9x18_fmj.ogf
+wm_size                                            = 0.0925
+
+[ammo_9x18_pmm]:ammo_base
+$prefetch                                          = 64
+$spawn                                             = "weapons\ammo\ammo_9x18_pmm"
+box_size                                           = 40
+buck_shot                                          = 1
+cform                                              = skeleton
+class                                              = AMMO
+cost                                               = 300
+description                                        = ammo-9x18-pmm_descr
+discovery_dependency                               = 
+GroupControlSection                                = spawn_group
+impair                                             = 1
+inv_grid_height                                    = 1
+inv_grid_width                                     = 1
+inv_grid_x                                         = 10
+inv_grid_y                                         = 5
+inv_name                                           = ammo-9x18-pmm
+inv_name_short                                     = ammo-9x18-pmm_s
+inv_weight                                         = 0.2
+k_air_resistance                                   = 1.5
+k_ap                                               = 0.6
+k_disp                                             = 1
+k_dist                                             = 1
+k_hit                                              = 0.8
+k_impulse                                          = 1
+k_pierce                                           = 0.25
+tracer_color_ID                                    = 2
+visual                                             = dynamics\weapons\wpn_ammo\ammo_9x18_pmm.ogf
+wm_size                                            = 0.05
+
+[ammo_9x19_fmj]:ammo_base
+$prefetch                                          = 64
+$spawn                                             = "weapons\ammo\ammo_9x19_fmj"
+box_size                                           = 40
+buck_shot                                          = 1
+cform                                              = skeleton
+class                                              = AMMO
+cost                                               = 250
+description                                        = ammo-9x19-fmj_descr
+discovery_dependency                               = 
+GroupControlSection                                = spawn_group
+impair                                             = 1
+inv_grid_height                                    = 1
+inv_grid_width                                     = 1
+inv_grid_x                                         = 11
+inv_grid_y                                         = 5
+inv_name                                           = ammo-9x19-fmj
+inv_name_short                                     = ammo-9x19-fmj_s
+inv_weight                                         = 0.24
+k_air_resistance                                   = 1.5
+k_ap                                               = 0.8
+k_disp                                             = 1
+k_dist                                             = 1
+k_hit                                              = 1
+k_impulse                                          = 1
+k_pierce                                           = 0.15
+visual                                             = dynamics\weapons\wpn_ammo\ammo_9x19_fmj.ogf
+wm_size                                            = 0.0903
+
+[ammo_9x19_pbp]:ammo_base
+$prefetch                                          = 64
+$spawn                                             = "weapons\ammo\ammo_9x19_pbp"
+box_size                                           = 40
+buck_shot                                          = 1
+cform                                              = skeleton
+class                                              = AMMO
+cost                                               = 350
+description                                        = ammo-9x19-pbp_descr
+discovery_dependency                               = 
+GroupControlSection                                = spawn_group
+impair                                             = 1
+inv_grid_height                                    = 1
+inv_grid_width                                     = 1
+inv_grid_x                                         = 12
+inv_grid_y                                         = 5
+inv_name                                           = ammo-9x19-pbp
+inv_name_short                                     = ammo-9x19-pbp_s
+inv_weight                                         = 0.25
+k_air_resistance                                   = 1.5
+k_ap                                               = 1.2
+k_disp                                             = 1
+k_dist                                             = 1
+k_hit                                              = 0.8
+k_impulse                                          = 1
+k_pierce                                           = 0.15
+tracer_color_ID                                    = 2
+visual                                             = dynamics\weapons\wpn_ammo\ammo_9x19_pbp.ogf
+wm_size                                            = 0.0903
+
+[ammo_11.43x23_fmj]:ammo_base
+$prefetch                                          = 64
+$spawn                                             = "weapons\ammo\ammo_11.43x23_fmj"
+box_size                                           = 40
+buck_shot                                          = 1
+cform                                              = skeleton
+class                                              = AMMO
+cost                                               = 600
+description                                        = ammo-11.43x23-fmj_descr
+discovery_dependency                               = 
+GroupControlSection                                = spawn_group
+impair                                             = 1
+inv_grid_height                                    = 1
+inv_grid_width                                     = 2
+inv_grid_x                                         = 18
+inv_grid_y                                         = 7
+inv_name                                           = ammo-11.43x23-fmj
+inv_name_short                                     = ammo-11.43x23-fmj_s
+inv_weight                                         = 0.3
+k_air_resistance                                   = 1.6
+k_ap                                               = 0.7
+k_disp                                             = 1
+k_dist                                             = 1
+k_hit                                              = 1
+k_impulse                                          = 1
+k_pierce                                           = 0.15
+visual                                             = dynamics\weapons\wpn_ammo\ammo_1143x23_fmj.ogf
+wm_size                                            = 0.115
+
+[ammo_11.43x23_hydro]:ammo_base
+$prefetch                                          = 64
+$spawn                                             = "weapons\ammo\ammo_11.43x23_hydro"
+box_size                                           = 40
+buck_shot                                          = 1
+cform                                              = skeleton
+class                                              = AMMO
+cost                                               = 1000
+description                                        = ammo-11.43x23-hydro_descr
+discovery_dependency                               = 
+GroupControlSection                                = spawn_group
+impair                                             = 1
+inv_grid_height                                    = 1
+inv_grid_width                                     = 2
+inv_grid_x                                         = 0
+inv_grid_y                                         = 8
+inv_name                                           = ammo-11.43x23-hydro
+inv_name_short                                     = ammo-11.43x23-hydro_s
+inv_weight                                         = 0.3
+k_air_resistance                                   = 1.6
+k_ap                                               = 1.4
+k_disp                                             = 1
+k_dist                                             = 1
+k_hit                                              = 1.2
+k_impulse                                          = 1
+k_pierce                                           = 0.35
+tracer_color_ID                                    = 2
+visual                                             = dynamics\weapons\wpn_ammo\ammo_1143x23_Hydro.ogf
+wm_size                                            = 0.21082
+
+[ammo_5.45x39_fmj]:ammo_base
+$prefetch                                          = 64
+$spawn                                             = "weapons\ammo\ammo_5.45x39_fmj"
+box_size                                           = 30
+buck_shot                                          = 1
+cform                                              = skeleton
+class                                              = AMMO
+cost                                               = 600
+description                                        = ammo-5.45x39-fmj_descr
+discovery_dependency                               = 
+GroupControlSection                                = spawn_group
+impair                                             = 1
+inv_grid_height                                    = 1
+inv_grid_width                                     = 2
+inv_grid_x                                         = 8
+inv_grid_y                                         = 8
+inv_name                                           = ammo-5.45x39-fmj
+inv_name_short                                     = ammo-5.45x39-fmj_s
+inv_weight                                         = 0.32
+k_air_resistance                                   = 1.6
+k_ap                                               = 1.6
+k_disp                                             = 1
+k_dist                                             = 1
+k_hit                                              = 1
+k_impulse                                          = 1
+k_pierce                                           = 0.45
+visual                                             = dynamics\weapons\wpn_ammo\ammo_545x39_fmj.ogf
+wm_size                                            = 0.0562
+
+[ammo_5.45x39_ap]:ammo_base
+$prefetch                                          = 64
+$spawn                                             = "weapons\ammo\ammo_5.45x39_ap"
+box_size                                           = 30
+buck_shot                                          = 1
+cform                                              = skeleton
+class                                              = AMMO
+cost                                               = 900
+description                                        = ammo-5.45x39-ap_descr
+discovery_dependency                               = 
+GroupControlSection                                = spawn_group
+impair                                             = 1
+inv_grid_height                                    = 1
+inv_grid_width                                     = 2
+inv_grid_x                                         = 6
+inv_grid_y                                         = 8
+inv_name                                           = ammo-5.45x39-ap
+inv_name_short                                     = ammo-5.45x39-ap_s
+inv_weight                                         = 0.32
+k_air_resistance                                   = 1.6
+k_ap                                               = 8
+k_disp                                             = 1
+k_dist                                             = 1
+k_hit                                              = 0.8
+k_impulse                                          = 1
+k_pierce                                           = 0.65
+tracer_color_ID                                    = 1
+visual                                             = dynamics\weapons\wpn_ammo\ammo_545x39_ap.ogf
+wm_size                                            = 0.0562
+
+[ammo_5.56x45_ss190]:ammo_base
+$prefetch                                          = 64
+$spawn                                             = "weapons\ammo\ammo_5.56x45_ss190"
+box_size                                           = 30
+buck_shot                                          = 1
+cform                                              = skeleton
+class                                              = AMMO
+cost                                               = 700
+description                                        = ammo-5.56x45-ss190_descr
+discovery_dependency                               = 
+GroupControlSection                                = spawn_group
+impair                                             = 1
+inv_grid_height                                    = 1
+inv_grid_width                                     = 2
+inv_grid_x                                         = 12
+inv_grid_y                                         = 8
+inv_name                                           = ammo-5.56x45-ss190
+inv_name_short                                     = ammo-5.56x45-ss190_s
+inv_weight                                         = 0.33
+k_air_resistance                                   = 1.5
+k_ap                                               = 1.6
+k_disp                                             = 1
+k_dist                                             = 1
+k_hit                                              = 1
+k_impulse                                          = 1
+k_pierce                                           = 0.5
+tracer_color_ID                                    = 1
+visual                                             = dynamics\weapons\wpn_ammo\ammo_556x45_ss190.ogf
+wm_size                                            = 0.0569
+
+[ammo_5.56x45_ap]:ammo_base
+$prefetch                                          = 64
+$spawn                                             = "weapons\ammo\ammo_5.56x45_ap"
+box_size                                           = 30
+buck_shot                                          = 1
+cform                                              = skeleton
+class                                              = AMMO
+cost                                               = 1000
+description                                        = ammo-5.56x45-ap_descr
+discovery_dependency                               = 
+GroupControlSection                                = spawn_group
+impair                                             = 1
+inv_grid_height                                    = 1
+inv_grid_width                                     = 2
+inv_grid_x                                         = 10
+inv_grid_y                                         = 8
+inv_name                                           = ammo-5.56x45-ap
+inv_name_short                                     = ammo-5.56x45-ap_s
+inv_weight                                         = 0.33
+k_air_resistance                                   = 1.5
+k_ap                                               = 8
+k_disp                                             = 1
+k_dist                                             = 1
+k_hit                                              = 0.8
+k_impulse                                          = 1
+k_pierce                                           = 0.65
+tracer_color_ID                                    = 3
+visual                                             = dynamics\weapons\wpn_ammo\ammo_556x45_ap.ogf
+wm_size                                            = 0.0569
+
+[ammo_9x39_pab9]:ammo_base
+$prefetch                                          = 64
+$spawn                                             = "weapons\ammo\ammo_9x39_pab9"
+box_size                                           = 30
+buck_shot                                          = 1
+cform                                              = skeleton
+class                                              = AMMO
+cost                                               = 800
+description                                        = ammo-9x39-pab9_descr
+discovery_dependency                               = 
+GroupControlSection                                = spawn_group
+impair                                             = 1.80
+inv_grid_height                                    = 1
+inv_grid_width                                     = 2
+inv_grid_x                                         = 18
+inv_grid_y                                         = 8
+inv_name                                           = ammo-9x39-pab9
+inv_name_short                                     = ammo-9x39-pab9_s
+inv_weight                                         = 0.7
+k_air_resistance                                   = 1.4
+k_ap                                               = 1.8
+k_disp                                             = 1
+k_dist                                             = 1
+k_hit                                              = 1
+k_impulse                                          = 1
+k_pierce                                           = 0.6
+tracer_color_ID                                    = 0
+visual                                             = dynamics\weapons\wpn_ammo\ammo_9x39_pab9.ogf
+wm_size                                            = 0.0925
+
+[ammo_9x39_ap]:ammo_base
+$prefetch                                          = 64
+$spawn                                             = "weapons\ammo\ammo_9x39_ap"
+box_size                                           = 30
+buck_shot                                          = 1
+cform                                              = skeleton
+class                                              = AMMO
+cost                                               = 1100
+description                                        = ammo-9x39-ap_descr
+discovery_dependency                               = 
+GroupControlSection                                = spawn_group
+impair                                             = 1
+inv_grid_height                                    = 1
+inv_grid_width                                     = 2
+inv_grid_x                                         = 16
+inv_grid_y                                         = 8
+inv_name                                           = ammo-9x39-ap
+inv_name_short                                     = ammo-9x39-ap_s
+inv_weight                                         = 0.7
+k_air_resistance                                   = 1.4
+k_ap                                               = 10
+k_disp                                             = 1
+k_dist                                             = 1
+k_hit                                              = 0.8
+k_impulse                                          = 1
+k_pierce                                           = 0.75
+tracer_color_ID                                    = 4
+visual                                             = dynamics\weapons\wpn_ammo\ammo_9x39_ap.ogf
+wm_size                                            = 0.0925
+
+[ammo_7.62x54_7h1]:ammo_base
+$prefetch                                          = 64
+$spawn                                             = "weapons\ammo\ammo_7.62x54_7h1"
+box_size                                           = 10
+buck_shot                                          = 1
+cform                                              = skeleton
+class                                              = AMMO
+cost                                               = 400
+description                                        = ammo-7.62x54-7h1_descr
+discovery_dependency                               = 
+GroupControlSection                                = spawn_group
+impair                                             = 1
+inv_grid_height                                    = 1
+inv_grid_width                                     = 2
+inv_grid_x                                         = 14
+inv_grid_y                                         = 8
+inv_name                                           = ammo-7.62x54-7h1
+inv_name_short                                     = ammo-7.62x54-7h1_s
+inv_weight                                         = 0.23
+k_air_resistance                                   = 1
+k_ap                                               = 16
+k_disp                                             = 1
+k_dist                                             = 1
+k_hit                                              = 1
+k_impulse                                          = 1
+k_pierce                                           = 0.75
+tracer_color_ID                                    = 0
+visual                                             = dynamics\weapons\wpn_ammo\ammo_762x54_7h1.ogf
+wm_size                                            = 0.079
+
+[ammo_7.62x54_7h14]:ammo_base
+$prefetch                                          = 64
+$spawn                                             = "weapons\ammo\ammo_7.62x54_7h14"
+box_size                                           = 10
+buck_shot                                          = 1
+cform                                              = skeleton
+class                                              = AMMO
+cost                                               = 400
+description                                        = ammo-7.62x54-7h14_descr
+discovery_dependency                               = 
+GroupControlSection                                = spawn_group
+impair                                             = 1
+inv_grid_height                                    = 1
+inv_grid_width                                     = 2
+inv_grid_x                                         = 0
+inv_grid_y                                         = 9
+inv_name                                           = ammo-7.62x54-7h14
+inv_name_short                                     = ammo-7.62x54-7h14_s
+inv_weight                                         = 0.23
+k_air_resistance                                   = 1
+k_ap                                               = 16
+k_disp                                             = 1
+k_dist                                             = 1
+k_hit                                              = 1
+k_impulse                                          = 1
+k_pierce                                           = 0.75
+tracer_color_ID                                    = 1
+visual                                             = dynamics\weapons\wpn_ammo\ammo_762x54_7h14.ogf
+wm_size                                            = 0.079
+
+[ammo_gauss]:ammo_base
+$prefetch                                          = 64
+$spawn                                             = "weapons\ammo\ammo_gauss"
+box_size                                           = 10
+buck_shot                                          = 1
+cform                                              = skeleton
+class                                              = AMMO
+cost                                               = 2000
+description                                        = ammo-gauss_descr
+discovery_dependency                               = 
+explosive                                          = on
+GroupControlSection                                = spawn_group
+impair                                             = 10
+inv_grid_height                                    = 1
+inv_grid_width                                     = 1
+inv_grid_x                                         = 13
+inv_grid_y                                         = 5
+inv_name                                           = ammo-gauss
+inv_name_short                                     = ammo-gauss_s
+inv_weight                                         = 0.5
+k_ap                                               = 999
+k_disp                                             = 1
+k_dist                                             = 1
+k_hit                                              = 1
+k_impulse                                          = 1
+k_pierce                                           = 150
+tracer                                             = off
+visual                                             = dynamics\weapons\wpn_ammo\ammo_gauss.ogf
+wm_size                                            = 0.02
+
+[ammo_gauss_cardan]:ammo_gauss
+$spawn                                             = "weapons\ammo\ammo_gauss_cardan"
+box_size                                           = 6
+description                                        = ammo-gauss_cardan_descr
+inv_grid_height                                    = 1
+inv_grid_width                                     = 1
+inv_grid_x                                         = 14
+inv_grid_y                                         = 5
+inv_name                                           = ammo-gauss_cardan
+inv_name_short                                     = ammo-gauss_cardan_s
+visual                                             = dynamics\weapons\wpn_ammo\ammo_gauss_custom.ogf
+
+[ammo_pkm_100]:ammo_base
+$prefetch                                          = 64
+$spawn                                             = "weapons\ammo\ammo_pkm_100"
+box_size                                           = 100
+buck_shot                                          = 1
+cform                                              = skeleton
+class                                              = AMMO
+cost                                               = 2000
+description                                        = ammo-7.62x54-pkm_descr
+discovery_dependency                               = 
+GroupControlSection                                = spawn_group
+hud_icon                                           = ui_hud2_res_back
+impair                                             = 1
+inv_grid_height                                    = 1
+inv_grid_width                                     = 2
+inv_grid_x                                         = 0
+inv_grid_y                                         = 9
+inv_name                                           = ammo-7.62x54-pkm
+inv_name_short                                     = ammo-7.62x54-pkm_s
+inv_weight                                         = 3.9
+k_air_resistance                                   = 2
+k_ap                                               = 12
+k_disp                                             = 1
+k_dist                                             = 1
+k_hit                                              = 1
+k_impulse                                          = 1
+k_pierce                                           = 0.75
+tracer_color_ID                                    = 2
+visual                                             = dynamics\weapons\wpn_ammo\ammo_pkm.ogf
+wm_size                                            = 0.079
+
+[ammo_og-7b]:ammo_base
+$prefetch                                          = 64
+$spawn                                             = "weapons\ammo\ammo_og-7b"
+box_size                                           = 1
+buck_shot                                          = 1
+can_be_unlimited                                   = true
+cform                                              = skeleton
+class                                              = S_OG7B
+cost                                               = 2000
+description                                        = ammo-og-7b_descr
+discovery_dependency                               = 
+explosive                                          = on
+GroupControlSection                                = spawn_group
+impair                                             = 1
+inv_grid_height                                    = 1
+inv_grid_width                                     = 3
+inv_grid_x                                         = 22
+inv_grid_y                                         = 0
+inv_name                                           = ammo-og-7b
+inv_name_short                                     = ammo-og-7b_s
+inv_weight                                         = 2.0
+k_ap                                               = 2.00
+k_disp                                             = 1
+k_dist                                             = 1
+k_hit                                              = 1
+k_impulse                                          = 1
+k_pierce                                           = 2.00
+tracer                                             = off
+visual                                             = dynamics\weapons\wpn_ammo\ammo_og_7b.ogf
+wm_size                                            = 0.1
+
+[ammo_vog-25]:ammo_base
+$prefetch                                          = 64
+$spawn                                             = "weapons\ammo\ammo_vog-25"
+box_size                                           = 1
+buck_shot                                          = 0
+can_be_unlimited                                   = true
+cform                                              = skeleton
+class                                              = S_VOG25
+cost                                               = 300
+description                                        = ammo-vog-25_descr
+discovery_dependency                               = 
+explosive                                          = on
+fake_grenade_name                                  = wpn_fake_vog-25
+GroupControlSection                                = spawn_group
+impair                                             = 1
+inv_grid_height                                    = 1
+inv_grid_width                                     = 1
+inv_grid_x                                         = 24
+inv_grid_y                                         = 4
+inv_name                                           = ammo-vog-25
+inv_name_short                                     = ammo-vog-25_s
+inv_weight                                         = 0.250
+k_ap                                               = 0
+k_disp                                             = 1
+k_dist                                             = 1
+k_hit                                              = 1
+k_impulse                                          = 1
+k_pierce                                           = 0
+kill_msg_height                                    = 22
+kill_msg_width                                     = 21
+kill_msg_x                                         = 38
+kill_msg_y                                         = 233
+tracer                                             = off
+visual                                             = dynamics\weapons\wpn_ammo\ammo_vog_25.ogf
+wm_size                                            = 0.1
+
+[ammo_vog-25p]:ammo_base
+$prefetch                                          = 64
+$spawn                                             = "weapons\ammo\ammo_vog-25p"
+box_size                                           = 1
+buck_shot                                          = 0
+can_be_unlimited                                   = true
+cform                                              = skeleton
+class                                              = S_VOG25
+cost                                               = 300
+description                                        = ammo-vog-25p_descr
+discovery_dependency                               = 
+explosive                                          = on
+fake_grenade_name                                  = wpn_fake_vog-25p
+GroupControlSection                                = spawn_group
+impair                                             = 1
+inv_grid_height                                    = 1
+inv_grid_width                                     = 1
+inv_grid_x                                         = 17
+inv_grid_y                                         = 5
+inv_name                                           = ammo-vog-25p
+inv_name_short                                     = ammo-vog-25p_s
+inv_weight                                         = 0.250
+k_ap                                               = 0
+k_disp                                             = 1
+k_dist                                             = 1
+k_hit                                              = 1
+k_impulse                                          = 1
+k_pierce                                           = 0
+kill_msg_height                                    = 22
+kill_msg_width                                     = 21
+kill_msg_x                                         = 38
+kill_msg_y                                         = 233
+tracer                                             = off
+visual                                             = dynamics\weapons\wpn_ammo\ammo_vog_25p.ogf
+wm_size                                            = 0.1
+
+[ammo_m209]:ammo_base
+$prefetch                                          = 64
+$spawn                                             = "weapons\ammo\ammo_m209"
+box_size                                           = 1
+buck_shot                                          = 0
+can_be_unlimited                                   = true
+cform                                              = skeleton
+class                                              = S_M209
+cost                                               = 350
+description                                        = ammo-m209_descr
+discovery_dependency                               = 
+fake_grenade_name                                  = wpn_fake_m209
+GroupControlSection                                = spawn_group
+impair                                             = 1
+inv_grid_height                                    = 1
+inv_grid_width                                     = 1
+inv_grid_x                                         = 24
+inv_grid_y                                         = 3
+inv_name                                           = ammo-m209
+inv_name_short                                     = ammo-m209_s
+inv_weight                                         = 0.265
+k_ap                                               = 0
+k_disp                                             = 1
+k_dist                                             = 1
+k_hit                                              = 1
+k_impulse                                          = 1
+k_pierce                                           = 0
+kill_msg_height                                    = 22
+kill_msg_width                                     = 19
+kill_msg_x                                         = 61
+kill_msg_y                                         = 232
+tracer                                             = off
+visual                                             = dynamics\weapons\wpn_ammo\ammo_m209.ogf
+wm_size                                            = 0.1
+
+[wpn_fake_og-7b]:ammo_base,wpn_fake_og-7b_sounds
+$prefetch                                          = 32
+blast                                              = 2
+blast_impulse                                      = 350
+blast_impulse_factor                               = 1
+blast_r                                            = 4
+cform                                              = skeleton
+class                                              = G_RPG7
+cost                                               = 200
+engine_impulse                                     = 300
+engine_impulse_up                                  = 133.906= 2*9.81*7 - �������� ����� ��������� (������� �������� ����� ��������� �����, ������� ��������),
+engine_particles                                   = weapons\rpg_trail_00
+engine_present                                     = true
+engine_work_time                                   = 3000
+explode_duration                                   = 5
+explode_particles                                  = explosions\explosion_04
+force_explode_time                                 = 30000
+frag_ap                                            = 0.76
+frag_hit                                           = 0.30
+frag_hit_impulse                                   = 10
+fragment_speed                                     = 150
+frags                                              = 700
+frags_r                                            = 20.44
+hit_type_blast                                     = explosion
+hit_type_frag                                      = fire_wound
+inv_grid_height                                    = 1
+inv_grid_width                                     = 3
+inv_grid_x                                         = 4
+inv_grid_y                                         = 14
+inv_name                                           = "Og-7b"
+inv_name_short                                     = "Og-7b"
+inv_weight                                         = 0.2
+inv_weight                                         = 0.2
+jump_height                                        = 0
+kill_msg_height                                    = 19
+kill_msg_width                                     = 74
+kill_msg_x                                         = 0
+kill_msg_y                                         = 85
+light_color                                        = 1.9,1.4,0.5
+light_range                                        = 24.0
+light_time                                         = 1.28
+lights_enabled                                     = true
+ph_mass                                            = 3
+trail_light_color                                  = 0.6,0.5,0.3
+trail_light_range                                  = 15.0
+up_throw_factor                                    = 0.25
+visual                                             = dynamics\weapons\wpn_rpg7\wpn_rpg7_grenade.ogf
+wallmark_section                                   = explosion_marks
+wm_size                                            = 0.1
+
+[wpn_fake_vog-25]:default_weapon_params,wpn_fake_vog-25_sounds
+$prefetch                                          = 32
+blast                                              = 1.5
+blast_impulse                                      = 240
+blast_impulse_factor                               = 1
+blast_r                                            = 2
+cform                                              = skeleton
+class                                              = G_FAKE
+cost                                               = 150
+engine_present                                     = false
+explode_duration                                   = 5
+explode_particles                                  = explosions\explosion_01
+force_explode_time                                 = 10000
+frag_ap                                            = 0.46
+frag_hit                                           = 0.50
+frag_hit_impulse                                   = 100
+fragment_speed                                     = 150
+frags                                              = 100
+frags_r                                            = 6.50
+hit_type_blast                                     = explosion
+hit_type_frag                                      = fire_wound
+inv_grid_height                                    = 1
+inv_grid_width                                     = 1
+inv_grid_x                                         = 17
+inv_grid_y                                         = 5
+inv_name                                           = ammo-vog-25
+inv_name_short                                     = ammo-vog-25
+inv_weight                                         = 0.2
+inv_weight                                         = 0.2
+jump_height                                        = 0
+kill_msg_height                                    = 22
+kill_msg_width                                     = 21
+kill_msg_x                                         = 17
+kill_msg_y                                         = 232
+light_color                                        = 1.9, 1.2, 0.5
+light_range                                        = 25.0
+light_time                                         = 0.5
+lights_enabled                                     = false
+ph_mass                                            = 1
+up_throw_factor                                    = 0.7
+visual                                             = dynamics\weapons\wpn_ammo\ammo_vog_25.ogf
+wallmark_section                                   = explosion_marks
+wm_size                                            = 0.1
+
+[wpn_fake_vog-25p]:default_weapon_params,wpn_fake_vog-25p_sounds
+$prefetch                                          = 32
+blast                                              = 1.50
+blast_impulse                                      = 240
+blast_impulse_factor                               = 1
+blast_r                                            = 2
+cform                                              = skeleton
+class                                              = G_FAKE
+cost                                               = 150
+engine_present                                     = false
+explode_duration                                   = 5
+explode_particles                                  = explosions\explosion_01
+force_explode_time                                 = 10000
+frag_ap                                            = 0.46
+frag_hit                                           = 0.50
+frag_hit_impulse                                   = 100
+fragment_speed                                     = 100
+frags                                              = 150
+frags_r                                            = 6.50
+hit_type_blast                                     = explosion
+hit_type_frag                                      = fire_wound
+inv_grid_height                                    = 1
+inv_grid_width                                     = 1
+inv_grid_x                                         = 16
+inv_grid_y                                         = 5
+inv_name                                           = ammo-vog-25p
+inv_name_short                                     = ammo-vog-25p
+inv_weight                                         = 0.2
+inv_weight                                         = 0.2
+jump_height                                        = 1.2
+kill_msg_height                                    = 22
+kill_msg_width                                     = 21
+kill_msg_x                                         = 38
+kill_msg_y                                         = 233
+light_color                                        = 1.9,1.4,0.5
+light_range                                        = 14.0
+light_time                                         = 0.85
+lights_enabled                                     = true
+ph_mass                                            = 1
+trail_light_color                                  = 0.6, 0.5, 0.3
+trail_light_range                                  = 8.0
+up_throw_factor                                    = 0.7
+visual                                             = dynamics\weapons\wpn_ammo\ammo_vog_25p.ogf
+wallmark_section                                   = explosion_marks
+wm_size                                            = 0.1
+
+[wpn_fake_m209]:default_weapon_params,wpn_fake_m209_sounds
+$prefetch                                          = 32
+blast                                              = 1.50
+blast_impulse                                      = 240
+blast_impulse_factor                               = 1
+blast_r                                            = 2
+cform                                              = skeleton
+class                                              = G_FAKE
+cost                                               = 150
+engine_present                                     = false
+explode_duration                                   = 5
+explode_particles                                  = explosions\explosion_01
+force_explode_time                                 = 10000
+frag_ap                                            = 0.46
+frag_hit                                           = 0.50
+frag_hit_impulse                                   = 100
+fragment_speed                                     = 100
+frags                                              = 100
+frags_r                                            = 5.82
+hit_type_blast                                     = explosion
+hit_type_frag                                      = fire_wound
+inv_grid_height                                    = 1
+inv_grid_width                                     = 1
+inv_grid_x                                         = 1
+inv_grid_y                                         = 0
+inv_name                                           = ammo-m209
+inv_name_short                                     = "M209"
+inv_weight                                         = 0.2
+inv_weight                                         = 0.2
+jump_height                                        = 1
+kill_msg_height                                    = 22
+kill_msg_width                                     = 19
+kill_msg_x                                         = 61
+kill_msg_y                                         = 232
+light_color                                        = 1.9,1.4,0.5
+light_range                                        = 14.0
+light_time                                         = 0.85
+lights_enabled                                     = true
+ph_mass                                            = 1
+trail_light_color                                  = 0.6,0.5,0.3
+trail_light_range                                  = 8.0
+up_throw_factor                                    = 0.7
+visual                                             = dynamics\weapons\wpn_ammo\ammo_m209.ogf
+wallmark_section                                   = explosion_marks
+wm_size                                            = 0.1
+
+[wpn_rpg7_missile]:wpn_fake_og-7b
+
+[wpn_fake_missile]:wpn_fake_vog-25
+
+[wpn_fake_missile1]:wpn_fake_vog-25p
+
+[wpn_fake_missile2]:wpn_fake_m209
+
+[explosive_fuelcan]:delayed_action_fuse,default_weapon_params,explosive_fuelcan_sounds
+$prefetch                                          = 16
+$spawn                                             = "weapons\explosive\fuelcan"
+blast                                              = 1.50
+blast_impulse                                      = 250
+blast_impulse_factor                               = 1
+blast_r                                            = 8
+can_take                                           = false
+cform                                              = skeleton
+class                                              = II_EXPLO
+cost                                               = 50
+discovery_dependency                               = 
+explode_duration                                   = 5
+explode_particles                                  = explosions\explosion_fuelcan
+frag_hit                                           = 0.75
+frag_hit_impulse                                   = 150
+fragment_speed                                     = 100
+frags                                              = 5
+frags_r                                            = 15
+GroupControlSection                                = spawn_group
+hit_type_blast                                     = explosion
+hit_type_frag                                      = light_burn
+immunities_sect                                    = explosive_fuelcan_immunities_sect
+inv_grid_height                                    = 1
+inv_grid_width                                     = 1
+inv_grid_x                                         = 9
+inv_grid_y                                         = 9
+inv_name                                           = "������� ����� 70 ��"
+inv_name_short                                     = "������� ����� 70 ��"
+inv_weight                                         = 70
+light_color                                        = 1.9,1.3,0.5
+light_range                                        = 30.0
+light_time                                         = 1.5
+up_throw_factor                                    = 1.0
+visual                                             = dynamics\balon\balon_01.ogf
+wallmark_section                                   = explosion_marks
+wm_size                                            = 0.1
+
+[explosive_fuelcan_immunities_sect]
+burn_immunity                                      = 0.0
+chemical_burn_immunity                             = 1.0
+explosion_immunity                                 = 1.0
+fire_wound_immunity                                = 0.7
+radiation_immunity                                 = 1.0
+shock_immunity                                     = 1.0
+strike_immunity                                    = 1.0
+telepatic_immunity                                 = 1.0
+wound_immunity                                     = 1.0
+
+[explosive_gaz_balon]:explosive_fuelcan
+$spawn                                             = "weapons\explosive\gaz_balon"
+inv_name                                           = "������� ����� 16 ��"
+inv_name_short                                     = "������� ����� 16 ��"
+inv_weight                                         = 16
+visual                                             = dynamics\balon\gaz_balon.ogf
+
+[explosive_tank]:delayed_action_fuse,default_weapon_params,explosive_tank_sounds
+$prefetch                                          = 16
+$spawn                                             = "weapons\explosive\tank"
+blast                                              = 1.50
+blast_impulse                                      = 250
+blast_impulse_factor                               = 1
+blast_r                                            = 8
+can_take                                           = false
+cform                                              = skeleton
+class                                              = II_EXPLO
+cost                                               = 50
+discovery_dependency                               = 
+explode_duration                                   = 5
+explode_particles                                  = explosions\explosion_mobiltank
+frag_hit                                           = 0.75
+frag_hit_impulse                                   = 150
+fragment_speed                                     = 100
+frags                                              = 5
+frags_r                                            = 15
+GroupControlSection                                = spawn_group
+hit_type_blast                                     = explosion
+hit_type_frag                                      = light_burn
+immunities_sect                                    = explosive_tank_immunities_sect
+inv_grid_height                                    = 1
+inv_grid_width                                     = 1
+inv_grid_x                                         = 9
+inv_grid_y                                         = 9
+inv_name                                           = "�������� 20�"
+inv_name_short                                     = "�������� 20�"
+inv_weight                                         = 20
+light_color                                        = 1.9,1.3,0.5
+light_range                                        = 30.0
+light_time                                         = 1
+up_throw_factor                                    = 1.0
+visual                                             = dynamics\balon\kanistra.ogf
+wallmark_section                                   = explosion_marks
+wm_size                                            = 0.1
+
+[explosive_tank_immunities_sect]
+burn_immunity                                      = 0.0
+chemical_burn_immunity                             = 1.0
+explosion_immunity                                 = 1.0
+fire_wound_immunity                                = 0.7
+radiation_immunity                                 = 1.0
+shock_immunity                                     = 1.0
+strike_immunity                                    = 1.0
+telepatic_immunity                                 = 1.0
+wound_immunity                                     = 1.0
+
+[explosive_barrel_low]:delayed_action_fuse,default_weapon_params,explosive_barrel_low_sounds
+$prefetch                                          = 16
+$spawn                                             = "weapons\explosive\barrel_low"
+blast                                              = 1.50
+blast_impulse                                      = 250
+blast_impulse_factor                               = 1
+blast_r                                            = 8
+can_take                                           = false
+cform                                              = skeleton
+class                                              = II_EXPLO
+cost                                               = 500
+discovery_dependency                               = 
+explode_duration                                   = 5
+explode_particles                                  = explosions\explosion_barrel
+frag_hit                                           = 0.75
+frag_hit_impulse                                   = 150
+fragment_speed                                     = 100
+frags                                              = 5
+frags_r                                            = 15
+GroupControlSection                                = spawn_group
+hit_type_blast                                     = explosion
+hit_type_frag                                      = light_burn
+immunities_sect                                    = explosive_barrel_low_immunities_sect
+inv_grid_height                                    = 1
+inv_grid_width                                     = 1
+inv_grid_x                                         = 9
+inv_grid_y                                         = 9
+inv_name                                           = "����� 200�"
+inv_name_short                                     = "����� 200�"
+inv_weight                                         = 190
+light_color                                        = 1.9,1.4,0.5
+light_range                                        = 14.0
+light_time                                         = 0.85
+up_throw_factor                                    = 1.0
+visual                                             = dynamics\balon\bochka_fuel.ogf
+wallmark_section                                   = explosion_marks
+wm_size                                            = 0.1
+
+[explosive_grenade]:delayed_action_fuse,default_weapon_params,explosive_grenade_sounds
+$prefetch                                          = 16
+$spawn                                             = "weapons\explosive\explosive_grenade"
+blast                                              = 1.50
+blast_impulse                                      = 240
+blast_impulse_factor                               = 1
+blast_r                                            = 2
+can_take                                           = false
+cform                                              = skeleton
+class                                              = II_EXPLO
+cost                                               = 500
+discovery_dependency                               = 
+explode_duration                                   = 2
+explode_particles                                  = explosions\explosion_01
+frag_hit                                           = 0.5
+frag_hit_impulse                                   = 240
+fragment_speed                                     = 100
+frags                                              = 100
+frags_r                                            = 5
+GroupControlSection                                = spawn_group
+hit_type_blast                                     = explosion
+hit_type_frag                                      = fire_wound
+immunities_sect                                    = explosive_explosive_grenade_immunities_sect
+inv_grid_height                                    = 1
+inv_grid_width                                     = 1
+inv_grid_x                                         = 9
+inv_grid_y                                         = 9
+inv_name                                           = 
+inv_name_short                                     = 
+inv_weight                                         = 0.1
+light_color                                        = 1.9,1.4,0.5
+light_range                                        = 14.0
+light_time                                         = 0.85
+up_throw_factor                                    = 1.0
+visual                                             = dynamics\weapons\wpn_grenades\wpn_f1.ogf
+wallmark_section                                   = explosion_marks
+wm_size                                            = 0.1
+
+[pri_a25_enter_door_explosive_grenade]:explosive_grenade
+$spawn                                             = "dynamic_objects\scene_objects\pri_a25_enter_door_explosive_grenade"
+hit_type_blast                                     = chemical_burn
+hit_type_frag                                      = chemical_burn
+story_id                                           = pri_a25_enter_door_explosive_grenade
+visual                                             = dynamics\light\light_signal.ogf
+
+[pri_a25_antenna_grenade]:explosive_grenade
+$spawn                                             = "dynamic_objects\scene_objects\pri_a25_antenna_grenade"
+story_id                                           = pri_a25_antenna_grenade
+visual                                             = dynamics\light\light_signal.ogf
+
+[explosive_explosive_grenade_immunities_sect]
+burn_immunity                                      = 0.0
+chemical_burn_immunity                             = 1.0
+explosion_immunity                                 = 0.0
+fire_wound_immunity                                = 0.0
+radiation_immunity                                 = 0.0
+shock_immunity                                     = 0.0
+strike_immunity                                    = 0.0
+telepatic_immunity                                 = 0.0
+wound_immunity                                     = 0.0
+
+[explosive_hide]:delayed_action_fuse,default_weapon_params,explosive_hide_sounds
+$prefetch                                          = 16
+$spawn                                             = "weapons\explosive\explosive_hide"
+blast                                              = 1.00
+blast_impulse                                      = 500
+blast_impulse_factor                               = 1
+blast_r                                            = 30
+can_take                                           = false
+cform                                              = skeleton
+class                                              = II_EXPLO
+cost                                               = 500
+discovery_dependency                               = 
+explode_duration                                   = 5
+explode_particles                                  = explosions\explosion_01
+frag_hit                                           = 0.05
+frag_hit_impulse                                   = 50
+fragment_speed                                     = 50
+frags                                              = 15
+frags_r                                            = 20
+GroupControlSection                                = spawn_group
+hit_type_blast                                     = explosion
+hit_type_frag                                      = fire_wound
+immunities_sect                                    = explosive_hide_immunities_sect
+inv_grid_height                                    = 1
+inv_grid_width                                     = 1
+inv_grid_x                                         = 9
+inv_grid_y                                         = 9
+inv_name                                           = 
+inv_name_short                                     = 
+inv_weight                                         = 0.1
+light_color                                        = 1.9,1.4,0.5
+light_range                                        = 14.0
+light_time                                         = 0.85
+up_throw_factor                                    = 1.0
+visual                                             = dynamics\weapons\wpn_grenades\wpn_f1.ogf
+wallmark_section                                   = explosion_marks
+wm_size                                            = 0.1
+
+[explosive_hide_immunities_sect]
+burn_immunity                                      = 0.0
+chemical_burn_immunity                             = 1.0
+explosion_immunity                                 = 0.0
+fire_wound_immunity                                = 0.0
+radiation_immunity                                 = 0.0
+shock_immunity                                     = 0.0
+strike_immunity                                    = 0.0
+telepatic_immunity                                 = 0.0
+wound_immunity                                     = 0.0
+
+[explosive_particle]:delayed_action_fuse,default_weapon_params,explosive_particle_sounds
+$prefetch                                          = 16
+$spawn                                             = "weapons\explosive\explosive_particle"
+blast                                              = 0.25
+blast_impulse                                      = 50
+blast_impulse_factor                               = 1
+blast_r                                            = 3
+can_take                                           = false
+cform                                              = skeleton
+class                                              = II_EXPLO
+cost                                               = 500
+discovery_dependency                               = 
+explode_duration                                   = 2
+explode_particles                                  = explosions\explosion_concrete_box
+frag_hit                                           = 0.75
+frag_hit_impulse                                   = 50
+fragment_speed                                     = 25
+frags                                              = 5
+frags_r                                            = 15
+GroupControlSection                                = spawn_group
+hit_type_blast                                     = explosion
+hit_type_frag                                      = fire_wound
+immunities_sect                                    = explosive_barrel_low_immunities_sect
+inv_grid_height                                    = 1
+inv_grid_width                                     = 1
+inv_grid_x                                         = 9
+inv_grid_y                                         = 9
+inv_name                                           = 
+inv_name_short                                     = 
+inv_weight                                         = 0.1
+light_color                                        = 0,0,0
+light_range                                        = 0.0
+light_time                                         = 0.85
+up_throw_factor                                    = 1.0
+visual                                             = dynamics\weapons\wpn_grenades\wpn_f1.ogf
+wallmark_section                                   = explosion_marks
+wm_size                                            = 0.1
+
+[explosive_barrel_low_immunities_sect]
+burn_immunity                                      = 1
+chemical_burn_immunity                             = 1
+explosion_immunity                                 = 1
+fire_wound_immunity                                = 5
+radiation_immunity                                 = 1
+shock_immunity                                     = 1
+strike_immunity                                    = 1
+telepatic_immunity                                 = 1
+wound_immunity                                     = 1
+
+[explosive_barrel]:delayed_action_fuse,default_weapon_params,explosive_barrel_sounds
+$prefetch                                          = 16
+$spawn                                             = "weapons\explosive\barrel"
+blast                                              = 1.50
+blast_impulse                                      = 250
+blast_impulse_factor                               = 1
+blast_r                                            = 8
+can_take                                           = false
+cform                                              = skeleton
+class                                              = II_EXPLO
+cost                                               = 500
+discovery_dependency                               = 
+explode_duration                                   = 5
+explode_particles                                  = explosions\explosion_barrel
+frag_hit                                           = 0.75
+frag_hit_impulse                                   = 150
+fragment_speed                                     = 100
+frags                                              = 5
+frags_r                                            = 15
+GroupControlSection                                = spawn_group
+hit_type_blast                                     = explosion
+hit_type_frag                                      = light_burn
+immunities_sect                                    = explosive_barrel_immunities_sect
+inv_grid_height                                    = 1
+inv_grid_width                                     = 1
+inv_grid_x                                         = 9
+inv_grid_y                                         = 9
+inv_name                                           = "����� 200�"
+inv_name_short                                     = "����� 200�"
+inv_weight                                         = 190
+light_color                                        = 1.9,1.4,0.5
+light_range                                        = 14.0
+light_time                                         = 0.85
+up_throw_factor                                    = 1.0
+visual                                             = dynamics\balon\bochka_fuel.ogf
+wallmark_section                                   = explosion_marks
+wm_size                                            = 0.1
+
+[explosive_barrel_immunities_sect]
+burn_immunity                                      = 0.0
+chemical_burn_immunity                             = 1
+explosion_immunity                                 = 1
+fire_wound_immunity                                = 0.7
+radiation_immunity                                 = 1
+shock_immunity                                     = 1
+strike_immunity                                    = 1
+telepatic_immunity                                 = 1
+wound_immunity                                     = 1
+
+[explosive_mobiltank]:delayed_action_fuse,default_weapon_params,explosive_mobiltank_sounds
+$prefetch                                          = 16
+$spawn                                             = "weapons\explosive\mobiltank"
+blast                                              = 1.50
+blast_impulse                                      = 250
+blast_impulse_factor                               = 1
+blast_r                                            = 8
+can_take                                           = false
+cform                                              = skeleton
+class                                              = II_EXPLO
+cost                                               = 500
+discovery_dependency                               = 
+explode_duration                                   = 5
+explode_particles                                  = explosions\explosion_mobiltank
+frag_hit                                           = 0.75
+frag_hit_impulse                                   = 150
+fragment_speed                                     = 100
+frags                                              = 5
+frags_r                                            = 15
+GroupControlSection                                = spawn_group
+hit_type_blast                                     = explosion
+hit_type_frag                                      = light_burn
+immunities_sect                                    = explosive_mobiltank_immunities_sect
+inv_grid_height                                    = 1
+inv_grid_width                                     = 1
+inv_grid_x                                         = 9
+inv_grid_y                                         = 9
+inv_name                                           = "�������� 20�"
+inv_name_short                                     = "�������� 20�"
+inv_weight                                         = 20
+light_color                                        = 1.9,1.2,0.5
+light_range                                        = 30.0
+light_time                                         = 1
+up_throw_factor                                    = 1.0
+visual                                             = dynamics\balon\kanistra.ogf
+wallmark_section                                   = explosion_marks
+wm_size                                            = 0.1
+
+[explosive_mobiltank_immunities_sect]
+burn_immunity                                      = 0.0
+chemical_burn_immunity                             = 1.0
+explosion_immunity                                 = 1.0
+fire_wound_immunity                                = 0.7
+radiation_immunity                                 = 1.0
+shock_immunity                                     = 1.0
+strike_immunity                                    = 1.0
+telepatic_immunity                                 = 1.0
+wound_immunity                                     = 1.0
+
+[explosive_dinamit]:delayed_action_fuse,default_weapon_params,explosive_dinamit_sounds
+$prefetch                                          = 16
+$spawn                                             = "weapons\explosive\dinamit"
+blast                                              = 3.00
+blast_impulse                                      = 250
+blast_impulse_factor                               = 1
+blast_r                                            = 10
+can_take                                           = false
+cform                                              = skeleton
+class                                              = II_EXPLO
+cost                                               = 50
+discovery_dependency                               = 
+explode_duration                                   = 5
+explode_particles                                  = explosions\explosion_dynamite
+frag_hit                                           = 100
+frag_hit_impulse                                   = 100
+fragment_speed                                     = 200
+frags                                              = 100
+frags_r                                            = 10
+GroupControlSection                                = spawn_group
+hit_type_blast                                     = explosion
+hit_type_frag                                      = chemical_burn
+immunities_sect                                    = dinamit_immunities_sect
+inv_grid_height                                    = 1
+inv_grid_width                                     = 1
+inv_grid_x                                         = 9
+inv_grid_y                                         = 9
+inv_name                                           = "���� � ���������"
+inv_name_short                                     = "���� � ���������"
+inv_weight                                         = 10.0
+light_color                                        = 1.9,1.3,0.5
+light_range                                        = 30.0
+light_time                                         = 1.5
+up_throw_factor                                    = 1.0
+visual                                             = dynamics\box\expl_dinamit.ogf
+wallmark_section                                   = explosion_marks
+wm_size                                            = 0.1
+
+[dinamit_immunities_sect]
+burn_immunity                                      = 0.0
+chemical_burn_immunity                             = 1.0
+explosion_immunity                                 = 0.5
+fire_wound_immunity                                = 0.05
+radiation_immunity                                 = 0.0
+shock_immunity                                     = 0.0
+strike_immunity                                    = 0.0
+telepatic_immunity                                 = 0.0
+wound_immunity                                     = 0.0

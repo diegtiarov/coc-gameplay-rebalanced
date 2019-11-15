@@ -1,0 +1,153 @@
+#include "trade_discounts.ltx"
+#include "trade_buysell.ltx"
+
+[trader]
+buy_condition                            = trade_generic_buy
+buy_item_condition_factor                = 0.7
+buy_supplies                             = {=actor_community(actor_ecolog) =heavy_pockets_functor} supplies_heavy_pockets, supplies_generic
+discounts                                = {=actor_goodwill_ge(ecolog:2000)} discount_10, {=actor_goodwill_ge(ecolog:1800)} discount_9, {=actor_goodwill_ge(ecolog:1600)} discount_8, {=actor_goodwill_ge(ecolog:1400)} discount_7, {=actor_goodwill_ge(ecolog:1200)} discount_6, {=actor_goodwill_ge(ecolog:1000)} discount_5, {=actor_goodwill_ge(ecolog:800)} discount_4, {=actor_goodwill_ge(ecolog:600)} discount_3, {=actor_goodwill_ge(ecolog:400)} discount_2, {=actor_goodwill_ge(ecolog:200)} discount_1, discount_0
+price_profile                            = default
+sell_condition                           = trade_generic_sell
+
+[trade_generic_sell]:trade_ecologmerchant_sell,trade_OA_sell
+
+[trade_generic_buy]:trade_ecologmerchant_buy,trade_OA_buy
+
+[supplies_heavy_pockets]
+
+;DET_ELIT
+detector_scientific                      = 1, 1
+
+;DET_ADVA
+detector_advanced                        = 2,	1
+detector_elite                           = 1, 0.7
+
+;II_FOOD
+antirad                                  = 5, 0.8
+bandage                                  = 5, 0.8
+drug_anabiotic                           = 3, 1
+drug_antidot                             = 5, 0.4
+drug_coagulant                           = 5, 0.4
+drug_radioprotector                      = 5, 0.4
+medkit                                   = 5, 0.8
+medkit_scientic                          = 5, 1
+
+;II_ANTIR
+itm_backpack                             = 5, 0.6
+
+;SMGS
+wpn_mp5                                 = 1, 0.5
+
+;SHOTGUNS
+wpn_wincheaster1300                     = 1, 0.5
+
+;PISTOLS
+wpn_beretta                             = 1, 0.5
+wpn_sig220                              = 1, 0.4
+wpn_usp                                 = 1, 0.4
+wpn_walther                             = 1, 0.4
+wpn_colt1911                            = 1, 0.4
+wpn_pm                                  = 1, 0.7
+
+;AMMO
+ammo_11.43x23_fmj                       = 6, 0.7
+ammo_12x70_buck                         = 8, 0.65
+ammo_9x18_fmj                           = 6, 1
+ammo_9x19_fmj                           = 6, 0.8
+
+;EQU_STLK
+ecolog_guard_outfit                      = 1, 0.5
+ecolog_outfit_green                      = 1, 0.3
+ecolog_outfit_orange                     = 1, 0.7
+scientific_outfit                        = 1, 0.4
+ecolog_outfit_blue                       = 1, 0.3
+ecolog_outfit_white                      = 1, 0.7
+
+;E_HLMET
+helm_respirator                          = 1, 0.4
+
+helm_respirator_2						 = 1, 0.4
+helm_respirator_gp5						 = 1, 0.4
+helm_respirator_half					 = 1, 0.4
+
+[supplies_generic]
+
+;DET_ADVA
+detector_advanced                        = 2,	1
+detector_elite                           = 1, 0.7
+
+;II_FOOD
+antirad                                  = 5, 0.8
+bandage                                  = 5, 0.8
+drug_antidot                             = 5, 0.4
+drug_coagulant                           = 5, 0.4
+drug_radioprotector                      = 5, 0.4
+medkit                                   = 5, 0.8
+medkit_scientic                          = 5, 0.6
+
+;II_ANTIR
+itm_backpack                             = 5, 0.6
+
+;SMGS
+wpn_mp5                                 = 1, 0.5
+
+;SHOTGUNS
+wpn_wincheaster1300                     = 1, 0.5
+
+;PISTOLS
+wpn_beretta                             = 1, 0.5
+wpn_sig220                              = 1, 0.4
+wpn_usp                                 = 1, 0.4
+wpn_walther                             = 1, 0.4
+wpn_colt1911                            = 1, 0.4
+wpn_pm                                  = 1, 0.7
+
+;AMMO
+ammo_11.43x23_fmj                       = 6, 0.7
+ammo_12x70_buck                         = 8, 0.65
+ammo_9x18_fmj                           = 6, 1
+ammo_9x19_fmj                           = 6, 0.8
+
+;EQU_STLK
+ecolog_guard_outfit                      = 1, 0.5
+ecolog_outfit_green                      = 1, 0.3
+ecolog_outfit_orange                     = 1, 0.7
+scientific_outfit                        = 1, 0.4
+ecolog_outfit_blue                       = 1, 0.3
+ecolog_outfit_white                      = 1, 0.7
+
+;E_HLMET
+helm_respirator                          = 1, 0.4
+
+helm_respirator_2						 = 1, 0.4
+helm_respirator_gp5						 = 1, 0.4
+helm_respirator_half					 = 1, 0.4
+
+[buy_tier_2]
+
+;ARTEFACT
+af_baloon                                ;NO TRADE
+af_blood                                 ;NO TRADE
+af_cristall                              ;NO TRADE
+af_cristall_flower                       ;NO TRADE
+af_dummy_battery                         ;NO TRADE
+af_dummy_dummy                           ;NO TRADE
+af_dummy_glassbeads                      ;NO TRADE
+af_eye                                   ;NO TRADE
+af_fire                                  ;NO TRADE
+af_fireball                              ;NO TRADE
+af_glass                                 ;NO TRADE
+af_gold_fish                             ;NO TRADE
+af_gravi                                 ;NO TRADE
+af_ice                                   ;NO TRADE
+af_medusa                                ;NO TRADE
+af_mincer_meat                           ;NO TRADE
+af_night_star                            ;NO TRADE
+af_soul                                  ;NO TRADE
+af_vyvert                                ;NO TRADE
+
+;SCRPTART
+af_electra_flash                         ;NO TRADE
+af_electra_moonlight                     ;NO TRADE
+af_electra_sparkler                      ;NO TRADE
+af_fuzz_kolobok                          ;NO TRADE

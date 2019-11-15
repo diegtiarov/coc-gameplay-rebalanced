@@ -1,0 +1,22 @@
+#include "respawnrates_agroprom_underground.ltx"
+
+[smart_terrain]:respawn_med
+squad_id = 1
+max_population = 2
+respawn_params = respawn@agr_u_bandits
+
+[respawn@agr_u_bandits]
+spawn_bandits@advanced
+
+[spawn_bandits@advanced]
+spawn_squads = bandits_sim_squad_advanced
+spawn_num = 1
+
+[exclusive]
+agr_u_bandits_squad_1 = agroprom_underground\agr_u_bandits_logic.ltx
+agr_u_bandits_squad_2 = agroprom_underground\agr_u_bandits_logic.ltx
+agr_u_bandits_squad_3 = agroprom_underground\agr_u_bandits_logic.ltx
+agr_u_bandits_squad_4 = agroprom_underground\agr_u_bandits_logic.ltx
+agr_u_bandits_squad_5 = agroprom_underground\agr_u_bandits_logic.ltx
+agr_u_bandits_squad_6 = agroprom_underground\agr_u_bandits_logic.ltx
+agr_u_bandits_squad_7 = agroprom_underground\agr_u_bandits_logic.ltx

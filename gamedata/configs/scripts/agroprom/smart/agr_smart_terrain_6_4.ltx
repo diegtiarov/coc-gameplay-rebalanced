@@ -1,0 +1,22 @@
+#include "respawnrates_agroprom.ltx"
+
+[smart_terrain]:respawn_med
+squad_id = 15
+max_population = 3
+respawn_params = respawn@agr_smart_terrain_6_4
+
+
+[respawn@agr_smart_terrain_6_4]
+spawn_merc@trainee
+
+[spawn_merc@trainee]
+spawn_squads = merc_sim_squad_trainee
+spawn_num = 2
+
+
+[exclusive]
+agr_smart_terrain_6_4_camp_work_1 = agroprom\agr_smart_terrain_6_4_smart_logic.ltx
+agr_smart_terrain_6_4_camp_work_2 = agroprom\agr_smart_terrain_6_4_smart_logic.ltx
+agr_smart_terrain_6_4_camp_work_3 = agroprom\agr_smart_terrain_6_4_smart_logic.ltx
+agr_smart_terrain_6_4_camp_work_4 = agroprom\agr_smart_terrain_6_4_smart_logic.ltx
+agr_smart_terrain_6_4_camp_work_5 = agroprom\agr_smart_terrain_6_4_smart_logic.ltx

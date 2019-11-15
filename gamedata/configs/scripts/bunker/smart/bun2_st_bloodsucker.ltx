@@ -1,0 +1,13 @@
+#include "respawnrates_bunker.ltx"
+
+[smart_terrain]:respawn_med
+squad_id = 2
+max_population = 5
+respawn_params = respawn@bun2_st_bloodsucker
+
+[respawn@bun2_st_bloodsucker]
+spawn_bloodsucker_rad_prip
+
+[spawn_bloodsucker_rad_prip]
+spawn_squads = simulation_bloodsucker_rad_prip
+spawn_num = {+bar_deactivate_radar_done} 1, 0

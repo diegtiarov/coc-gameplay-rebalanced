@@ -1,0 +1,227 @@
+--[[
+************************************************************
+					xr_eat_medkit
+by Alundaio original by Rulix
+************************************************************
+--]]
+local eating = {}
+
+function on_game_start()
+	local ini = ini_file("ai_tweaks\\xr_eat_medkit.ltx")
+	local enabled = ini:r_bool_ex("plugin","enable",false)
+	if not (enabled) then ini = nil return end
+	RegisterScriptCallback("npc_on_update",npc_update)
+
+	local sect = "plugin"
+	--eating.exc_comms = alun_utils.parse_list(ini,sect,"excluded_communities",true)
+	eating.ic = ini:r_bool_ex(sect,"in_combat",false)
+	eating.oc = ini:r_bool_ex(sect,"out_combat",false)
+	eating.max_h = (ini:r_float_ex(sect,"medkit_health") or 50)/100
+	eating.cooldown = ini:r_float_ex(sect,"medkit_cooldown") or 30000
+	eating.min_b = ini:r_float_ex(sect,"bandage_bleeding") or 0.2
+	eating.medkits = alun_utils.parse_list(ini,sect,"medkits")
+	eating.bandages = alun_utils.parse_list(ini,sect,"bandages")
+	eating.medkit_delay = {}
+	eating.bandage_delay = {}
+	local ranks = alun_utils.get_rank_list()
+	for k,v in ipairs(ranks) do
+		eating.medkit_delay[v] = alun_utils.parse_list(ini,v,"medkit_delay")
+		eating.bandage_delay[v] = alun_utils.parse_list(ini,v,"bandage_delay")
+	end
+	ini = nil
+end
+
+function npc_update(npc,st)
+	if not (npc:alive()) then
+		return
+	end
+	
+	if not (st.eat_medkit) then
+		st.eat_medkit = eat_medkit(npc,st)
+	else
+		local comm = npc:character_community()
+		if (comm == "trader" or comm == "zombied") then
+			return
+		end
+
+		st.eat_medkit:update(npc)
+	end
+end
+
+
+class "eat_medkit"
+function eat_medkit:__init(object,storage)
+	self.st = storage
+	self.rank = ranks.get_obj_rank_name(object)
+end
+
+function eat_medkit:update(npc)
+	local stage = self.stage or 0
+
+	if not (npc.meds_enabled) then
+		prepare_npc_to_use_meds(npc)
+		--printf("Prepared %s[%s] to use meds.",npc:name(), npc:character_name())
+	end
+
+	if (stage == 0) then
+		if (npc.healing_ticks_left > 0) or (npc.bleeding_ticks_left > 0) then
+			healing_tick(npc)
+		end
+
+		if (IsWounded(npc)) then
+			self.item = nil
+			self.timer = nil
+			npc.med_type = nil
+			--printf("%s[%s]: is in wounded state.",npc:name(),npc:character_name())
+			return
+		end
+		
+		local enemy = npc:best_enemy()
+		if (eating.oc and not eating.ic and enemy) or (eating.ic and not eating.oc and not enemy) then
+			self.item = nil
+			self.timer = nil
+			npc.med_type = nil
+			return
+		end
+
+		if (npc.health < eating.max_h and not IsWounded(npc)) then
+			for i=1,#eating.medkits do
+				local medkit = npc:object(eating.medkits[i])
+				if (medkit) then
+					local d_min = eating.medkit_delay[self.rank][1] or 10000
+					local d_max = eating.medkit_delay[self.rank][2] or 15000
+					self.timer = time_global()+math.random(d_min,d_max)
+					self.item = eating.medkits[i]
+					self.stage = 1
+					npc.med_type = "medkit"
+					--printf("%s[%s]: is about to use a medkit.",npc:name(),npc:character_name())
+					return
+				end
+			end
+		end
+		--does not work; check healing_tick() for more info
+		if (npc.bleeding > eating.min_b) then
+			for i=1, #eating.bandages do
+				local bandage = npc:object(eating.bandages[i])
+				if (bandage) then
+					local d_min = eating.bandage_delay[self.rank][1] or 10000
+					local d_max = eating.bandage_delay[self.rank][2] or 15000
+					self.timer = time_global()+math.random(d_min,d_max)
+					self.item = eating.bandages[i]
+					self.stage = 1
+					npc.med_type = "bandage"
+					--printf("%s[%s]: is about to use a bandage.",npc:name(),npc:character_name())
+					return
+				end
+			end
+		end
+	elseif (stage == 1) then
+		if (self.timer and time_global() > self.timer) then
+			if (self.item) then
+				local med = npc:object(self.item)
+				if med then
+					if not (bleed_ticks) and (npc.med_type == "bandage") then
+						consume_medkit(npc,med)
+						--printf("%s[%s]: has successfully used bandages",npc:name(),npc:character_name())
+					elseif not (health_ticks) and (npc.med_type == "medkit") and not (npc.last_time_used) then
+						consume_medkit(npc,med)
+						npc.last_time_used = time_global()
+						--printf("%s[%s]: used medkit for the first time",npc:name(),npc:character_name())
+					elseif not (health_ticks) and (npc.med_type == "medkit") and not (npc.last_time_used + eating.cooldown > time_global()) then
+						consume_medkit(npc,med)
+						npc.last_time_used = time_global()
+						--printf("%s[%s]: has successfully used medkit",npc:name(),npc:character_name())
+					end
+				end
+				self.item = nil
+				npc.med_type = nil
+			end
+			self.stage = 0
+		end
+	end
+end
+
+function consume_medkit(npc,medkit)
+	local ms = medkit:section()
+	npc:eat(medkit)
+	local ini = system_ini()
+	local time = ini:r_float_ex(ms,"boost_time") or 1
+	local health_restore = ini:r_float_ex(ms,"boost_health_restore") or 0
+	local bleeding_restore = ini:r_float_ex(ms,"boost_bleeding_restore") or 0
+	if (health_restore) then
+		npc.health_per_tick = health_restore*10 --restore*time_factor
+		npc.healing_ticks_left = time
+	end
+	--[[ --does not work; check healing_tick() for more info
+	if (bleeding_restore) then
+		npc.bleeding_per_tick = bleeding_restore
+		npc.bleeding_ticks_left = time
+	end
+	--]]
+end
+
+function healing_tick(npc)
+	local last_tick_time = npc.last_tick_time or 0
+
+	if (last_tick_time) and (last_tick_time + 1000 >= time_global()) then 	--making sure it doesn't tick more than once per second
+		return
+	end
+
+	if (npc.healing_ticks_left > 0) then
+		--[[
+		printf("%s[%s]: health before restore = %s",npc:name(),npc:character_name(),npc.health)
+		printf("(npc.health + npc.health_per_tick) = %s",(npc.health + npc.health_per_tick))
+		--]]
+
+		if not (IsWounded(npc)) then	--do not heal if npc is in wounded state to avoid npcs falling on the ground and immediately standing up
+			if (npc.health + npc.health_per_tick > 1) then
+				npc:set_health_ex(1)
+			else
+				npc:set_health_ex(npc.health + npc.health_per_tick)
+			end
+			npc.healing_ticks_left = npc.healing_ticks_left - 1
+			npc.last_tick_time = time_global()
+		end
+
+		--[[
+		printf("Health after restore = %s",npc.health)
+		printf("Medkit ticks left=%s",npc.healing_ticks_left)
+		printf("Variable: health_per_tick=%s",npc.health_per_tick)
+		--]]
+	end
+	--[[
+		--bleeding value cannot be edited via the variable itself
+		--there is no equivalent to set_health_ex() so this feature must remain disabled until proper function
+		--is created and exposed to Lua
+	--]]
+
+	if (npc.bleeding_ticks_left > 0) then
+
+		--printf("%s[%s]: bleeding (wound) before restore = %s",npc:name(),npc:character_name(),npc.bleeding)
+
+		if (npc.bleeding - npc.bleeding_per_tick < 0) then
+			npc.bleeding = 0
+		else
+			npc.bleeding = (npc.bleeding - npc.bleeding_per_tick)
+		end
+		npc.bleeding_ticks_left = npc.bleeding_ticks_left - 1
+		npc.last_tick_time = time_global()
+
+		--[[
+		printf("Bleeding after restore = %s",npc.bleeding)
+		printf("Bandage ticks left=%s",npc.healing_ticks_left)
+		printf("Variable: bleeding_per_tick=%s",npc.bleeding_per_tick)
+		--]]
+	end
+end
+
+function prepare_npc_to_use_meds(npc)
+	npc.meds_enabled = true
+	npc.last_time_used = nil
+	npc.med_type = nil
+	npc.healing_ticks_left = 0
+	npc.bleeding_ticks_left = 0
+	npc.health_per_tick = nil
+	npc.bleeding_per_tick = nil
+	npc.last_tick_time	= nil
+end

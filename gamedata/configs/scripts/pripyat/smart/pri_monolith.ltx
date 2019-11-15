@@ -1,0 +1,44 @@
+#include "respawnrates_pripyat.ltx"
+
+[smart_terrain]:respawn_high
+squad_id = 2
+max_population = 6
+respawn_params = respawn@pri_monolith
+
+
+[respawn@pri_monolith]
+spawn_monolith@novice
+spawn_monolith@trainee
+spawn_monolith@advanced
+spawn_monolith@veteran
+spawn_monolith@elite
+
+[spawn_monolith@novice]
+spawn_squads = monolith_sim_squad_novice
+spawn_num = 2
+
+[spawn_monolith@trainee]
+spawn_squads = monolith_sim_squad_trainee
+spawn_num = 2
+
+[spawn_monolith@advanced]
+spawn_squads = monolith_sim_squad_advanced
+spawn_num = 2
+
+[spawn_monolith@veteran]
+spawn_squads = monolith_sim_squad_veteran
+spawn_num = 2
+
+[spawn_monolith@elite]
+spawn_squads = monolith_sim_squad_elite
+spawn_num = 1
+
+[exclusive]
+prayer_1 = pripyat\pri_monolith_smart_logic.ltx
+prayer_2 = pripyat\pri_monolith_smart_logic.ltx
+prayer_3 = pripyat\pri_monolith_smart_logic.ltx
+prayer_4 = pripyat\pri_monolith_smart_logic.ltx
+prayer_5 = pripyat\pri_monolith_smart_logic.ltx
+prayer_6 = pripyat\pri_monolith_smart_logic.ltx
+pri_monolith_monolith_trader =  pripyat\pri_monolith_smart_logic.ltx
+pri_monolith_monolith_mechanic =  pripyat\pri_monolith_smart_logic.ltx

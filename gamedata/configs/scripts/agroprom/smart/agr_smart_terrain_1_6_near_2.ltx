@@ -1,0 +1,21 @@
+#include "respawnrates_agroprom.ltx"
+
+[smart_terrain]:respawn_heli
+squad_id = 5
+max_population = 3
+respawn_params = respawn@agr_smart_terrain_1_6_near_2
+
+[respawn@agr_smart_terrain_1_6_near_2]
+spawn_heli_strong
+spawn_heli_weak
+
+[spawn_heli_strong]
+spawn_helicopter = simulation_helicopter_strong
+spawn_num = {-achieved_down_to_earth !heli_exist_on_level} 2, 0
+
+[spawn_heli_weak]
+spawn_helicopter = simulation_helicopter_weak
+spawn_num = {+achieved_down_to_earth !heli_exist_on_level} 2, 0
+
+[exclusive]
+agr_military_colonel_kovalski = agroprom\agr_smart_terrain_1_6_near_2_smart_logic.ltx

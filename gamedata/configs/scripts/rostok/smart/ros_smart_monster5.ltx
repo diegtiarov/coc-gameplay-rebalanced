@@ -1,0 +1,14 @@
+#include "respawnrates_rostok.ltx"
+
+[smart_terrain]:respawn_med
+squad_id = 6
+max_population = 3
+respawn_params = respawn@ros_smart_monster5
+
+
+[respawn@ros_smart_monster5]
+spawn_zombie
+
+[spawn_zombie]
+spawn_squads = simulation_zombie
+spawn_num = 2

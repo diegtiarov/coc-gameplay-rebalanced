@@ -1,0 +1,15 @@
+#include "respawnrates_zaton.ltx"
+
+[smart_terrain]:respawn_med
+squad_id = 22
+max_population = 1
+spawn_point = zat_sim_14_spawn_point 
+respawn_params = respawn@zat_sim_14
+
+
+[respawn@zat_sim_14]
+spawn_dog
+
+[spawn_dog]
+spawn_squads = simulation_dog
+spawn_num = 2

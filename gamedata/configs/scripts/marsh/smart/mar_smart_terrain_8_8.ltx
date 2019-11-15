@@ -1,0 +1,23 @@
+#include "respawnrates_marsh.ltx"
+
+[smart_terrain]:respawn_med
+squad_id = 23
+max_population = 1
+respawn_params = respawn@mar_smart_terrain_8_8
+
+
+[respawn@mar_smart_terrain_8_8]
+spawn_bandit@novice
+spawn_bandit@trainee
+
+[spawn_bandit@novice]
+spawn_squads = bandit_sim_squad_novice
+spawn_num = 2
+
+[spawn_bandit@trainee]
+spawn_squads = bandit_sim_squad_trainee
+spawn_num = 2
+
+
+[exclusive]
+mar_smart_terrain_8_8_collector_work = marsh\mar_smart_terrain_8_8_smart_logic.ltx

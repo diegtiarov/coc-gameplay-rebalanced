@@ -1,0 +1,49 @@
+#include "trade_discounts_any.ltx"
+#include "trade_buysell_any.ltx"
+
+[trader]
+buy_condition                            = trade_generic_buy
+buy_item_condition_factor                = 0.75
+buy_supplies                             = supplies_generic
+discounts                                = no_discount
+price_profile                            = default
+sell_condition                           = trade_generic_sell
+
+[trade_generic_sell]:trade_merchant_sell
+
+[trade_generic_buy]:trade_merchant_buy
+
+[supplies_generic]
+
+;ACTOR
+itm_backpack                            = 1, 0.35
+itm_sleepbag                            = 1, 0.35
+
+;FOOD
+bread                                   = 12, 0.5
+conserva                                = 7, 0.2
+energy_drink                            = 10, 0.2
+kolbasa                                 = 10, 0.3
+vodka                                   = 5, 0.3
+
+;MEDICAL_SUPPLIES
+bandage                                 = 15, 0.6
+medkit                                  = 12, 0.7
+antirad                                 = 15, 0.6
+
+;TOOLKITS
+itm_gunsmith_toolkit                    = 2, 0.4
+itm_outfit_toolkit_tier_1               = 2, 0.4
+itm_repairkit_tier_1			        = 1, 0.025
+itm_repairkit_tier_2                    = 1, 0.0025
+itm_repairkit_tier_3                    = 1, 0.0005
+
+;AMMO
+ammo_11.43x23_fmj                       = 5, 0.65
+ammo_12x70_buck                         = 6, 0.7
+ammo_5.45x39_fmj                        = 5, 0.8
+ammo_5.56x45_ss190                      = 5, 0.8
+ammo_7.62x54_7h1                        = 5, 0.5
+ammo_9x18_fmj                           = 8, 0.95
+ammo_9x19_fmj                           = 6, 0.9
+ammo_9x39_pab9                          = 5, 0.5

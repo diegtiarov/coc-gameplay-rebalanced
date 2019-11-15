@@ -1,0 +1,15 @@
+#include "respawnrates_trucks_cemetery.ltx"
+
+[smart_terrain]:respawn_med
+squad_id = 21
+max_population = 1
+;respawn_only_smart = true
+respawn_params = respawn@trc_sim_21
+
+
+[respawn@trc_sim_21]
+spawn_boar
+
+[spawn_boar]
+spawn_squads = simulation_boar
+spawn_num = 2

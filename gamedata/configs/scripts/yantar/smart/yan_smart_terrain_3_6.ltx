@@ -1,0 +1,23 @@
+#include "respawnrates_yantar.ltx"
+
+[smart_terrain]:respawn_ultra
+max_population = 3
+respawn_params = respawn@yan_smart_terrain_3_6
+
+
+[respawn@yan_smart_terrain_3_6]
+spawn_ecolog@novice
+spawn_ecolog@advanced
+spawn_ecolog@veteran
+
+[spawn_ecolog@novice]
+spawn_squads = ecolog_sim_squad_novice
+spawn_num = 2
+
+[spawn_ecolog@advanced]
+spawn_squads = ecolog_sim_squad_advanced
+spawn_num = 1
+
+[spawn_ecolog@veteran]
+spawn_squads = ecolog_sim_squad_veteran
+spawn_num = 1

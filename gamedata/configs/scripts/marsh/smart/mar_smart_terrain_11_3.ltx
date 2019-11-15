@@ -1,0 +1,17 @@
+#include "respawnrates_marsh.ltx"
+
+[smart_terrain]:respawn_high
+squad_id = 5
+max_population = 1
+respawn_params = respawn@mar_smart_terrain_11_3
+
+
+[respawn@mar_smart_terrain_11_3]
+spawn_boar
+
+[spawn_boar]
+spawn_squads = simulation_boar
+spawn_num = 2
+
+[exclusive]
+mar_smart_terrain_11_3_collector_work = marsh\mar_smart_terrain_11_3_smart_logic.ltx

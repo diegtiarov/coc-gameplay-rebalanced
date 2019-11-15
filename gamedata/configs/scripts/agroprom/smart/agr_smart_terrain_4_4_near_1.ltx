@@ -1,0 +1,22 @@
+#include "respawnrates_agroprom.ltx"
+
+[smart_terrain]:respawn_high
+squad_id = 8
+max_population = 3
+respawn_params = respawn@agr_smart_terrain_4_4_near_1_near_1
+
+
+[respawn@agr_smart_terrain_4_4_near_1_near_1]
+spawn_stalker@trainee
+
+[spawn_stalker@trainee]
+spawn_squads = stalker_sim_squad_trainee
+spawn_num = 2
+
+
+[exclusive]
+agr_smart_terrain_4_4_near_1_camp_work_1 = agroprom\agr_smart_terrain_4_4_near_1_smart_logic.ltx
+agr_smart_terrain_4_4_near_1_camp_work_2 = agroprom\agr_smart_terrain_4_4_near_1_smart_logic.ltx
+agr_smart_terrain_4_4_near_1_camp_work_3 = agroprom\agr_smart_terrain_4_4_near_1_smart_logic.ltx
+agr_smart_terrain_4_4_near_1_camp_work_4 = agroprom\agr_smart_terrain_4_4_near_1_smart_logic.ltx
+agr_smart_terrain_4_4_near_1_camp_work_5 = agroprom\agr_smart_terrain_4_4_near_1_smart_logic.ltx

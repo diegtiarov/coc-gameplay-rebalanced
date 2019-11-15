@@ -1,0 +1,15 @@
+#include "respawnrates_trucks_cemetery.ltx"
+
+[smart_terrain]:respawn_high
+squad_id = 16
+max_population = 1
+;respawn_only_smart = true
+respawn_params = respawn@trc_sim_16
+
+
+[respawn@trc_sim_16]
+spawn_pseudodog
+
+[spawn_pseudodog]
+spawn_squads = simulation_pseudodog
+spawn_num = 2

@@ -1,0 +1,205 @@
+#include "trade_discounts.ltx"
+#include "trade_buysell.ltx"
+
+[trader]
+buy_condition                            = trade_generic_buy
+buy_item_condition_factor                = 0.7
+buy_supplies                             = {=actor_community(actor_csky) =heavy_pockets_functor} supplies_heavy_pockets, supplies_generic
+discounts                                = {=actor_goodwill_ge(csky:2000)} discount_10, {=actor_goodwill_ge(csky:1800)} discount_9, {=actor_goodwill_ge(csky:1600)} discount_8, {=actor_goodwill_ge(csky:1400)} discount_7, {=actor_goodwill_ge(csky:1200)} discount_6, {=actor_goodwill_ge(csky:1000)} discount_5, {=actor_goodwill_ge(csky:800)} discount_4, {=actor_goodwill_ge(csky:600)} discount_3, {=actor_goodwill_ge(csky:400)} discount_2, {=actor_goodwill_ge(csky:200)} discount_1, discount_0
+price_profile                            = default
+sell_condition                           = trade_generic_sell
+
+[trade_generic_sell]:trade_clearskymerchant_sell
+
+[trade_generic_buy]:trade_clearskymerchant_buy
+
+[supplies_heavy_pockets]
+
+;DET_SIMP
+detector_simple                          = 1, 0.75
+
+;DET_ADVA
+detector_advanced                        = 1,	0.5
+
+;II_FOOD
+itm_repairkit_tier_1                     = 1, 0.25
+itm_repairkit_tier_2                     = 1, 0.10
+itm_repairkit_tier_3                     = 1, 0.03
+
+;II_ANTIR
+itm_backpack                             = 7, 0.6
+wpn_mine                                 = 10, 0.5
+
+;G_RGD5
+grenade_rgd5                             = 4,	0.7
+grenade_f1                               = 5,   1
+
+;AMMO
+ammo_11.43x23_fmj                        = 2,	0.7
+ammo_12x70_buck                          = 6,	0.7
+ammo_12x76_zhekan                        = 6,	0.7
+ammo_5.45x39_fmj                         = 4,	0.7
+ammo_5.56x45_ss190                       = 4,	0.7
+ammo_7.62x54_7h1                         = 4,	0.5
+ammo_9x18_fmj                            = 4,	0.7
+ammo_9x18_pmm                            = 4,	0.5
+ammo_9x19_fmj                            = 4,	0.7
+ammo_9x19_pbp                            = 4,	0.5
+ammo_9x39_pab9                           = 5, 	0.5
+
+;S_M209
+ammo_m209                                = 4,   0.5
+
+;WP_SCOPE
+wpn_addon_scope                          = 1, 	0.7
+
+;WP_SILEN
+wpn_addon_silencer                       = 2, 	0.5
+
+;WP_AK74
+wpn_abakan                               = 1,	0.1
+wpn_ak74                                 = 1,	0.7
+wpn_ak74u                                = 1,	0.9
+wpn_groza                                = 1,	0.05
+
+;WP_ASHTG
+wpn_spas12                               = 1,	0.2
+wpn_wincheaster1300                      = 1,	0.7
+
+;WP_BINOC
+wpn_binoc                                = 1,   0.5
+
+;WP_BM16
+wpn_bm16                                 = 1,	1
+wpn_toz34                                = 1,	0.8
+
+;WP_HPSA
+wpn_hpsa                                 = 1,	0.7
+
+;WP_KNIFE
+wpn_knife                                = 1,   0.5
+
+;WP_LR300
+wpn_beretta                              = 1,	0.5
+wpn_mp5                                  = 1,	0.5
+
+;WP_PM
+wpn_colt1911                             = 1,	0.5
+wpn_fort                                 = 1,	0.9
+wpn_pm                                   = 1,	0.9
+
+;WP_VAL
+wpn_val                                  = 1,	0.05
+
+;EQU_STLK
+cs_heavy_outfit                          = 1, 	1
+cs_light_novice_outfit                   = 1, 	0.7
+cs_light_outfit                          = 1, 	0.6
+cs_medium_outfit                         = 1, 	0.4
+cs_novice_outfit                         = 1, 	1
+novice_outfit                            = 1,	1
+specops_outfit                           = 1, 	0.4
+stalker_outfit                           = 1, 	0.7
+
+;E_HLMET
+helm_battle                              = 1, 0.4
+helm_hardhat                             = 1, 0.4
+helm_m40                                 = 1, 0.4
+helm_protective                          = 1, 0.4
+helm_respirator                          = 1, 0.4
+helm_tactic                              = 1, 0.4
+
+[supplies_generic]
+
+;DET_SIMP
+detector_simple                          = 1, 0.75
+
+;DET_ADVA
+detector_advanced                        = 1,	0.5
+
+;II_FOOD
+itm_repairkit_tier_1                     = 1, 0.25
+itm_repairkit_tier_2                     = 1, 0.10
+itm_repairkit_tier_3                     = 1, 0.03
+
+;II_ANTIR
+itm_backpack                             = 7, 0.6
+wpn_mine                                 = 10, 0.5
+
+;G_RGD5
+grenade_rgd5                             = 4,	0.7
+
+;AMMO
+ammo_11.43x23_fmj                        = 2,	0.7
+ammo_12x70_buck                          = 6,	0.7
+ammo_12x76_zhekan                        = 6,	0.7
+ammo_5.45x39_fmj                         = 4,	0.7
+ammo_5.56x45_ss190                       = 4,	0.7
+ammo_7.62x54_7h1                         = 4,	0.5
+ammo_9x18_fmj                            = 4,	0.7
+ammo_9x18_pmm                            = 4,	0.5
+ammo_9x19_fmj                            = 4,	0.7
+ammo_9x19_pbp                            = 4,	0.5
+ammo_9x39_pab9                           = 5, 	0.5
+
+;S_M209
+ammo_m209                                = 4,   0.5
+
+;WP_SCOPE
+wpn_addon_scope                          = 1, 	0.7
+
+;WP_SILEN
+wpn_addon_silencer                       = 2, 	0.5
+
+;WP_AK74
+wpn_abakan                               = 1,	0.1
+wpn_ak74                                 = 1,	0.7
+wpn_ak74u                                = 1,	0.9
+wpn_groza                                = 1,	0.05
+
+;WP_ASHTG
+wpn_spas12                               = 1,	0.2
+wpn_wincheaster1300                      = 1,	0.7
+
+;WP_BINOC
+wpn_binoc                                = 1,   0.5
+
+;WP_BM16
+wpn_bm16                                 = 1,	1
+wpn_toz34                                = 1,	0.8
+
+;WP_HPSA
+wpn_hpsa                                 = 1,	0.7
+
+;WP_KNIFE
+wpn_knife                                = 1,   0.5
+
+;WP_LR300
+wpn_beretta                              = 1,	0.5
+wpn_mp5                                  = 1,	0.5
+
+;WP_PM
+wpn_colt1911                             = 1,	0.5
+wpn_fort                                 = 1,	0.9
+wpn_pm                                   = 1,	0.9
+
+;WP_VAL
+wpn_val                                  = 1,	0.05
+
+;EQU_STLK
+cs_heavy_outfit                          = 1, 	0.25
+cs_light_novice_outfit                   = 1, 	0.7
+cs_light_outfit                          = 1, 	0.6
+cs_medium_outfit                         = 1, 	0.4
+cs_novice_outfit                         = 1, 	1
+novice_outfit                            = 1,	1
+specops_outfit                           = 1, 	0.4
+stalker_outfit                           = 1, 	0.7
+
+;E_HLMET
+helm_battle                              = 1, 0.4
+helm_hardhat                             = 1, 0.4
+helm_m40                                 = 1, 0.4
+helm_protective                          = 1, 0.4
+helm_respirator                          = 1, 0.4
+helm_tactic                              = 1, 0.4

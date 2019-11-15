@@ -1,0 +1,37 @@
+function corpsestash(npc)
+    if npc:character_community() ~= nil then
+	    local money = npc:money()
+		local mr = math.random(1,100)
+		if money > 0 then
+		    if npc:character_community() == "army" then
+    			if mr > 95 then coc_treasure_manager.create_random_stash(nil,npc:character_name().."'s stash")
+				end
+			elseif npc:character_community() == "bandit" then 
+				if mr > 85 then coc_treasure_manager.create_random_stash(nil,npc:character_name().."'s stash")
+				end
+			elseif npc:character_community() == "csky" then 
+				if mr > 92 then coc_treasure_manager.create_random_stash(nil,npc:character_name().."'s stash")
+				end
+			elseif npc:character_community() == "dolg" then  
+				if mr > 90 then coc_treasure_manager.create_random_stash(nil,npc:character_name().."'s stash")
+				end
+			elseif npc:character_community() == "ecolog" then 
+				if mr > 95 then coc_treasure_manager.create_random_stash(nil,npc:character_name().."'s stash")
+				end
+			elseif npc:character_community() == "freedom" then 
+				if mr > 90 then coc_treasure_manager.create_random_stash(nil,npc:character_name().."'s stash")
+				end
+			elseif npc:character_community() == "killer" then 
+				if mr > 92 then coc_treasure_manager.create_random_stash(nil,npc:character_name().."'s stash")
+				end
+			elseif npc:character_community() == "monolith" then 
+				if mr > 97 then coc_treasure_manager.create_random_stash(nil,npc:character_name().."'s stash")
+				end
+			elseif npc:character_community() == "stalker" then 
+				if mr > 87 then coc_treasure_manager.create_random_stash(nil,npc:character_name().."'s stash")
+				end
+			end
+		end
+		npc:give_money(-money) --take away all the money so that player cannot re-open corpse inventory and get another coordinates
+	end
+end

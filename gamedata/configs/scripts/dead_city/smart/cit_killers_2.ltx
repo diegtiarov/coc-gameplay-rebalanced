@@ -1,0 +1,42 @@
+#include "respawnrates_dead_city.ltx"
+
+[smart_terrain]:respawn_ultra
+squad_id = 6
+max_population = 2
+respawn_params = respawn@cit_killers2
+
+
+[respawn@cit_killers2]
+spawn_merc@novice
+spawn_merc@trainee
+spawn_merc@advanced
+spawn_merc@veteran
+spawn_merc@elite
+
+[spawn_merc@novice]
+spawn_squads = merc_sim_squad_novice
+spawn_num = 2
+
+[spawn_merc@trainee]
+spawn_squads = merc_sim_squad_trainee
+spawn_num = 2
+
+[spawn_merc@advanced]
+spawn_squads = merc_sim_squad_advanced
+spawn_num = 2
+
+[spawn_merc@veteran]
+spawn_squads = merc_sim_squad_veteran
+spawn_num = 2
+
+[spawn_merc@elite]
+spawn_squads = merc_sim_squad_elite
+spawn_num = 1
+
+[exclusive]
+faction_base_defense_enemy1 = dead_city\cit_killers_2_smart_logic.ltx
+faction_base_defense_enemy2 = dead_city\cit_killers_2_smart_logic.ltx
+faction_base_defense_enemy3 = dead_city\cit_killers_2_smart_logic.ltx
+faction_base_defense_enemy4 = dead_city\cit_killers_2_smart_logic.ltx
+faction_base_defense_enemy5 = dead_city\cit_killers_2_smart_logic.ltx
+faction_base_defense_enemy6 = dead_city\cit_killers_2_smart_logic.ltx

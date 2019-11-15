@@ -1,0 +1,25 @@
+#include "respawnrates_trucks_cemetery.ltx"
+
+[smart_terrain]:respawn_med
+squad_id = 20
+max_population = 2
+;respawn_only_smart = true
+respawn_params = respawn@trc_sim_20
+
+
+[respawn@trc_sim_20]
+spawn_army@trainee
+spawn_army@advanced
+spawn_army@veteran
+
+[spawn_army@trainee]
+spawn_squads = army_sim_squad_trainee
+spawn_num = 2
+
+[spawn_army@advanced]
+spawn_squads = army_sim_squad_advanced
+spawn_num = 2
+
+[spawn_army@veteran]
+spawn_squads = army_sim_squad_veteran
+spawn_num = 1

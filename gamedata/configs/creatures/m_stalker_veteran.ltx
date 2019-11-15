@@ -1,0 +1,109 @@
+[stalker_veteran]:stalker
+
+;---FIRE DISPERSIONS--------------------------------------------------
+disp_walk_stand					= 5
+disp_walk_crouch				= 4
+disp_run_stand					= 13
+disp_run_crouch					= 9
+disp_stand_stand				= 2
+disp_stand_crouch				= 1
+disp_stand_stand_zoom			= 1
+disp_stand_crouch_zoom			= 0
+
+FireRandomMin 		 =     	1
+FireRandomMax 		 =     	30
+NoFireTimeMin 		 =    	3
+NoFireTimeMax 		 =    	32
+MinMissDistance		 =     	1
+MinMissFactor		 =     	0.0
+MaxMissDistance		 =    	6
+MaxMissFactor		 =     	0.0
+
+;---FIRE QUEUE PARAMETERS
+fire_queue_section = fire_queue_params_veteran
+
+[fire_queue_params_veteran]  ; min < 15 < medium < 30 < max
+pstl_min_queue_size_far			= 1
+pstl_max_queue_size_far			= 1
+pstl_min_queue_interval_far		= 1000
+pstl_max_queue_interval_far		= 2000
+
+pstl_min_queue_size_medium		= 1
+pstl_max_queue_size_medium		= 5
+pstl_min_queue_interval_medium	= 400
+pstl_max_queue_interval_medium	= 600
+
+pstl_min_queue_size_close		= 1
+pstl_max_queue_size_close		= 10
+pstl_min_queue_interval_close	= 100
+pstl_max_queue_interval_close	= 250
+
+;-------------------------------
+
+shtg_min_queue_size_far			= 1
+shtg_max_queue_size_far			= 1
+shtg_min_queue_interval_far		= 1000
+shtg_max_queue_interval_far		= 2000
+
+shtg_min_queue_size_medium		= 1
+shtg_max_queue_size_medium		= 4
+shtg_min_queue_interval_medium	= 400
+shtg_max_queue_interval_medium	= 600
+
+shtg_min_queue_size_close		= 1
+shtg_max_queue_size_close		= 12
+shtg_min_queue_interval_close	= 100
+shtg_max_queue_interval_close	= 300
+
+;-------------------------------
+
+snp_min_queue_size_far			= 1
+snp_max_queue_size_far			= 1
+snp_min_queue_interval_far		= 2000
+snp_max_queue_interval_far		= 5000
+
+snp_min_queue_size_medium		= 1
+snp_max_queue_size_medium		= 2
+snp_min_queue_interval_medium	= 1000
+snp_max_queue_interval_medium	= 2000
+
+snp_min_queue_size_close		= 1
+snp_max_queue_size_close		= 5
+snp_min_queue_interval_close	= 500
+snp_max_queue_interval_close	= 1000
+
+;-------------------------------
+
+auto_min_queue_size_far			= 1
+auto_max_queue_size_far			= 10
+auto_min_queue_interval_far		= 600
+auto_max_queue_interval_far		= 1500
+
+auto_min_queue_size_medium		= 2
+auto_max_queue_size_medium		= 15
+auto_min_queue_interval_medium	= 200
+auto_max_queue_interval_medium	= 1500
+
+auto_min_queue_size_close		= 4
+auto_max_queue_size_close		= 30
+auto_min_queue_interval_close	= 100
+auto_max_queue_interval_close	= 400
+
+;-------------------------------
+
+mchg_min_queue_size_far			= 4
+mchg_max_queue_size_far			= 15
+mchg_min_queue_interval_far		= 300
+mchg_max_queue_interval_far		= 600
+
+mchg_min_queue_size_medium		= 4
+mchg_max_queue_size_medium		= 50
+mchg_min_queue_interval_medium	= 300
+mchg_max_queue_interval_medium	= 500
+
+mchg_min_queue_size_close		= 7
+mchg_max_queue_size_close		= 100
+mchg_min_queue_interval_close	= 100
+mchg_max_queue_interval_close	= 400
+
+;-------------------------------
